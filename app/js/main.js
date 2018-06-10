@@ -31,11 +31,6 @@
       placement: 'bottom',
       html: true
     });
-    /*rating appraise*/
-    $(document).on("click", ".rating-appraise li", function(){
-      $(this).siblings().removeClass("cheсked")
-      $(this).addClass("cheсked");
-    });
     /*FANCYBOX*/
     if ($("[data-fancybox='gallery']").length != 0)
       $("[data-fancybox='gallery']").fancybox({
@@ -164,53 +159,6 @@
       brandMenu.flickity('selectCell', selector);
     });
 
-    //short-partners-carousel
-    if ($(".short-partners-carousel .carousel-items figure").length > 3)
-      $('.short-partners-carousel .carousel-items').flickity({
-        imagesLoaded: true,
-        autoPlay: false,
-        pauseAutoPlayOnHover: true,
-        arrowShape: arrowStyle,
-        initialIndex: 2,
-        prevNextButtons: true,
-        draggable: true,
-        wrapAround: true,
-        pageDots: false,
-        contain: false,
-        percentPosition: true,
-        cellAlign: 'center'
-      });
-    //producitons-carousel
-    $('.productions-carousel .carousel-items').map(function(i, el) {
-      var fct = $(el).flickity({
-        imagesLoaded: true,
-        autoPlay: false,
-        pauseAutoPlayOnHover: true,
-        lazyLoad: true,
-        arrowShape: arrowStyle,
-        setGallerySize: true,
-        initialIndex: 1,
-        prevNextButtons: false,
-        draggable: false,
-        resize: false,
-        wrapAround: !true,
-        pageDots: true,
-        contain: false,
-        percentPosition: true,
-        cellAlign: 'left'
-      })
-
-      //TODO
-      var fctData = fct.data("flickity");
-        $(fct).on('ready.flickity', function() {
-          console.log('Flickity ready');
-        });
-        $(document).on("click", "[flickity='resize']", function() {
-          setTimeout(function() {
-            fct.flickity('resize');
-          }, 200)
-        })
-    })
 
     //customers-carousel
     //if( $('.customers-carousel .carousel-items figure').length >= 5 )
@@ -227,25 +175,6 @@
         draggable: false,
         resize: false,
         wrapAround: true,
-        pageDots: true,
-        contain: false,
-        percentPosition: true,
-        cellAlign: 'left'
-      })
-    })
-    $('.galleryvideo-carousel .carousel-items').map(function(i, el) {
-      var fct = $(el).flickity({
-        imagesLoaded: true,
-        autoPlay: false,
-        pauseAutoPlayOnHover: true,
-        lazyLoad: true,
-        arrowShape: arrowStyle,
-        setGallerySize: true,
-        initialIndex: 0,
-        prevNextButtons: false,
-        draggable: false,
-        resize: false,
-        wrapAround: false,
         pageDots: true,
         contain: false,
         percentPosition: true,
@@ -331,12 +260,8 @@
 
 
 
-
-
-
-
     function onLoaded() {
-      //MASONRY
+      /*MASONRY*/
       if ($(".grid-img").length != 0) {
         var $grid = $(".grid-img").masonry({
           itemSelector: ".grid-img-item",

@@ -24,7 +24,6 @@
 
 
 @mixin modal-center($width, $height: false) {
-
 	width: $width;
 	margin-left: -+($width/2);
   left: 50%;
@@ -34,6 +33,7 @@
 		top: 50%;
   }
 }
+
 @mixin img-flex-align( $align: center, $mheight: 0, $tag: ".img-content" ) {
 
 	#{$tag}{
@@ -50,12 +50,10 @@
 }
 
 @mixin placeholder-color( $color ) {
-
 	&::-moz-placeholder { color: $color;opacity: 1; }
 	&:-ms-input-placeholder { color:$color; }
 	&::-webkit-input-placeholder { color: $color; }
 	&::-ms-expand { border: 0;background-color: transparent; }
-
 }
 
 
@@ -133,4 +131,26 @@
 		display: inline-block;
 		vertical-align: top;
 	}
+}
+
+
+@mixin boxes-items( $width: 75, $item: 3, $tag: figure ) {
+
+	$mrow : ( (100 - $width)/($item*2) );
+
+	letter-spacing: -5px;
+	*{
+		letter-spacing: 0;
+	}
+	margin-left: -+($mrow)+%;
+	margin-right: -+( $mrow )+%;
+//100/$item
+	#{$tag}, .boxes-cell{
+		margin-left:  ($mrow)+%;
+		margin-right:  ($mrow)+%;
+		//width: ( ($width/$item)+( $item / ( $item * 10) ) )+%;
+		width: ($width/$item)+%;
+
+	}
+
 }

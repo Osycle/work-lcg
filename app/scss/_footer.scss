@@ -1,0 +1,43 @@
+/* 
+		_footer.scss
+*/
+
+/*
+										---FOOTER---
+*/
+
+
+
+#footer{
+	position: relative;
+	color: white;
+	min-height: 150px;
+	line-height: 170%;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+}
+.footer-socicons{
+	font-size: 20px;
+	li{
+		margin-left: 15px;
+	}
+}
+.footer-content{
+	.payicons{
+		li{
+			margin: 0 15px;
+		}
+	}
+}
+.footer-menu{
+	li{
+		margin: 0 5px;
+	}
+}
+.footer-feedback{
+	.btn-def{
+		&:hover{
+			background-color:darken($color-1, 10%);
+		}
+	}
+}

@@ -7,7 +7,6 @@ $plugins_path: "plugins/";
 @import "_fonts";
 @import "_font-awesome";
 @import "_bootstrap";
-@import "_theme";
 
 //PLUGINS
 //@import "plugins/_animate"; 
@@ -23,6 +22,6 @@ $plugins_path: "plugins/";
 
 
 //OTHER
-//@import "_min-menu";
 @import "../icomoon/_style.scss";
 @import "_style";
+@import "_helper.scss";
