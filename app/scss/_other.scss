@@ -108,13 +108,11 @@ html body{
   }
 	.next, .prev{
 		font-size: 45px;
-		width: 45px;
-		height: 45px;
 		border: 0;
 		background-color: transparent;
 		position: absolute;
-		top: 50%;
-		margin-top: -2.25px;
+		top: 0;
+		//margin-top: -2.25px;
 		color: $color-1;
 		fill: $color-1;
 		&:hover{
@@ -149,13 +147,11 @@ html body{
 			fill: $color-1;
 		}
 		&.previous{
-			left: -5px;
 			transform: rotate(180deg) translateY(50%);
 			transform-origin: center;
 		}
 		&.next{
 			transform: rotate(0deg) translateY(-50%);
-			right: -5px;
 		}
 
 		@media ( min-width:992px ){

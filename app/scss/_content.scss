@@ -11,21 +11,138 @@
 
 //.bnr-slider
 .bnr-slider{
+	$height: 800px;
+	background-image: url('img/bg/bg-header.jpg');
+	background-position: right center;
 	figure{
-		height: 800px;
+		height: $height;
+		.img-content{
+			width: calc(60vw + 90px);
+		}
 		.img{
 			position: absolute;
 			height: 100%;
 			width: 100%;
+	    background-size: cover;
+	    filter: drop-shadow(0 0 6px black);
+	    background-position: center;
+	    width: calc(50vw + #{(1140/4)+px} );
 		}
 	}
 	.desc-content{
 		padding: 15px 20px;
 		background-color: $color-1;
 		color: white;
+		height: 290px;
+		.btn-def{
+			position: absolute;
+    	bottom: 0;
+		}
 	}
+  @media( max-width: 991px ) {
+	
+		figure{
+			height: $height/2;
+			.desc-content{
+				display: none;
+			}
+			.carousel-btn-content{
+				display: none;
+				&:before{
+					display: none;
+				}
+			}
+			.img{
+				width: 100%;
+			}
+		}
+	
+  }
 }
 
+div.carousel-btn-content{
+	background-color: white;
+	position: relative;
+	height: 290px;
+	.prev, .next{
+		text-align: center;
+		display: block;
+		position: relative;
+		width: 100%;
+	}
+	.prev{
+		margin-bottom: 30px;
+		img{
+			margin-left: 10px;
+		}
+	}
+	.next{
+		margin-top: 30px;
+		img{
+			margin-right: -5px;
+		}
+	}
+
+	img{
+		margin-top:-4px;
+	}
+	&:before{
+		@extend .claf;
+		background-image: url('../img/bg/bg-header.jpg');
+		background-size: cover;
+		background-position: center;
+		height: 800px;
+		top: -400px + (290/2);
+		width: 40vw;
+		transition: all 0.3s ease-in-out;
+	}
+	&:hover{
+		&:before{
+			//filter: grayscale(1);
+		}
+	}
+	.carousel-prev-next{
+		background-color: white;
+	}
+}
+.carousel-counter{
+	width: 100%;
+	text-align: center;
+	font-size: 36px;
+	display: block;
+}
+.counter-style-1{
+	font-size: 0.6em;
+	vertical-align: top;
+}
+.flickity-main-slider{
+	figure{
+		.img{
+			opacity: 0;
+			transform: scale(1.2);
+			transition: all 2s ease;
+		}
+		.desc-content{
+			opacity: 0;
+			width: 60%;
+			transition: all 1s ease,
+									transform 0.5s ease,
+									width 2s ease;
+			transform: translateX(-5px);
+		}
+		&.is-selected{
+			.img{
+				opacity: 1;
+				transform: inherit;
+			}
+			.desc-content{
+				width: 100%;
+				opacity: 1;
+				transform: inherit;
+			}
+		}
+	}
+}
 
 
 

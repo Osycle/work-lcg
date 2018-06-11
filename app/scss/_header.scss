@@ -7,7 +7,7 @@
 										 ---HEADER---
 */
 
-$header-top-height: 60px; 
+$header-top-height: 200px; 
 $header-middle-height: 90px; 
 $header-bottom-height: 50px;
 $header-min-menu: 70px;
@@ -62,7 +62,7 @@ header{
 	height: $header-middle-height;
 	transition: all 0.3s ease-in-out;
 	img{
-		width: 100%;
+		width: 195px;
 		max-width: unset;
 	}
 	font{
@@ -92,6 +92,7 @@ header{
 				padding: 15px 30px;
 			}
 			&:hover{
+				font-weight: 700;
 				.sub-menu-1{
 					transform: none;transform: unset;
 					opacity: 1;
@@ -113,8 +114,7 @@ header{
 	}
 	li{
 		display: inline-block;
-		transition: all 0.3s ease-in-out;
-		font-size: 0.90em;
+		//transition: all 0.3s ease-in-out;
 		&:before, &:after{
 			@extend .claf;
 			height: 1px;

@@ -36,7 +36,7 @@ gulp.task('sass', () =>
 	return gulp.src( app+'/scss/**/*.+(scss|sass)' )
 			.pipe( sass().on('error', sass.logError) )
 			.pipe( autoprefixer( {browsers: 'last 15 versions', cascade: false} ) )
-			.pipe( gulp.dest(app+'/css/') ) //css default
+			.pipe( gulp.dest(app+'/css/') )
 			.pipe( browserSync.reload({stream:true}) );
 	}
 );
@@ -111,11 +111,14 @@ gulp.task('clear', () =>
 // WATCHING
 gulp.task('watch', ['browser-sync', 'cssnano', 'scripts'], () =>
 	{
-		gulp.watch(app+'/scss/**/*.+(scss|sass)', ['sass']);
+		setTimeout(function() {
+			gulp.watch(app+'/scss/**/*.+(scss|sass)', ['sass']);
+		}, 500);
 		gulp.watch(app+'/*.html', browserSync.reload);
 		gulp.watch(app+'/**/*.php', browserSync.reload);
 		gulp.watch(app+'/templates/**/*.tpl', browserSync.reload);
 		gulp.watch(app+'/js/**/*.js', browserSync.reload);
+
 	}
 );
 

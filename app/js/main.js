@@ -129,16 +129,16 @@
     };
 
     //bnr-carousel
-    if( $(".bnr-carousel .carousel-items").length )
+    if( $(".bnr-carousel .carousel-items").length ){
       $(".bnr-carousel .carousel-items").flickity({
         imagesLoaded: true,
         autoPlay: false,
         pauseAutoPlayOnHover: true,
         arrowShape: arrowStyle,
-        initialIndex: 1,
+        initialIndex: 0,
         friction: 1,
         selectedAttraction: 1,
-        prevNextButtons: true,
+        prevNextButtons: false,
         draggable: checkSm(),
         wrapAround: true,
         pageDots: false,
@@ -146,6 +146,8 @@
         percentPosition: true,
         cellAlign: "center"
       });
+      flickityPrevNext(".bnr-carousel");
+    }
 
 
 
