@@ -697,7 +697,17 @@ button:hover, button:focus{
 label{
 	margin-bottom: 0;
 }
-
+.h1-style{
+	&:before{
+		@extend .claf;
+		width: 45px;
+		height: 5px;
+		background-color: currentColor;
+		left: 0;
+		top: inherit;
+		bottom: 0;
+	}
+}
 h1,h2,h3,h4,h5{
 	color: inherit;
 	line-height: 170%;
@@ -705,8 +715,6 @@ h1,h2,h3,h4,h5{
 h1,h2,h3{
 	font-family: $font-family-1;
 }
-
-
 h1, h2, h3, h4{
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -714,6 +722,7 @@ h1, h2, h3, h4{
 	font-family: $font-family-2;
 }
 h1{
+	@extend .h1-style;
 	position: relative;
 	font-weight: 600;	
 	font-size: em(30, 16);
@@ -721,27 +730,23 @@ h1{
 	padding-bottom: 15px;
 	margin-bottom: 15px;
 	line-height: 125%;
-	&:before{
-		@extend .claf;
-		width: 45px;
-		height: 5px;
-		background-color: white;
-		left: 0;
-		top: inherit;
-		bottom: 0;
-	}
 }
 h2{
-	font-weight: 500;
+	@extend .h1-style;
+	position: relative;
+	font-weight: 600;
 	font-size: em(25, 16);
-	margin-top: 20px;
-	line-height: 130%;
-	margin-bottom: 10px;
+	line-height: 125%;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
 } 
 h3{
-	font-weight: 500;
+	@extend .h1-style;
+	position: relative;
+	font-weight: 600;
+	padding-bottom: 15px;
 	font-size: em(18, 16);
-	line-height: 150%;
+	line-height: 125%;
 }
 h4{
 	font-weight: 500;
@@ -778,7 +783,7 @@ main{
 	color: black;
 	p{
 		line-height: 130%;
-		font-size: 0.93em;
+		font-size: 1em;
 	}
 	.parag-gray{
 		p{

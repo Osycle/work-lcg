@@ -144,6 +144,7 @@
         pageDots: false,
         contain: false,
         percentPosition: true,
+        cellSelector: 'figure',
         cellAlign: "center"
       });
       flickityPrevNext(".bnr-carousel");
