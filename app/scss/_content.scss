@@ -183,6 +183,7 @@ div.carousel-btn-content{
 	&:before{
 		@extend .claf;
 		width:15px;
+		z-index: 1;
 		height:15px;
 		transform: rotate(45deg);
 		background-color: white;
@@ -208,9 +209,8 @@ div.carousel-btn-content{
 			}
 		}
 	}
-	figure:nth-child(1){
+	figure:nth-child(3n+1){
 		@extend .col-md-8; padding: 0;
-		@extend .before-arrow;
 		&, .img-content, .desc-content{
 			float: left;
 		}
@@ -218,10 +218,11 @@ div.carousel-btn-content{
 			width: 50%;
 		}
 		.desc-content{
+			@extend .before-arrow;
 			width: 50%;
 		}
 	}
-	figure:nth-child(2){
+	figure:nth-child(3n+2){
 		@extend .col-md-4; padding: 0;
 		float: right;
 		.img-content, .desc-content{
@@ -232,9 +233,14 @@ div.carousel-btn-content{
 		}
 		.desc-content{
 			width: 100%;
+			@extend .before-arrow;
+			&:before{
+				left: 50%;	
+				top: 0;
+			}
 		}
 	}
-	figure:nth-child(3){
+	figure:nth-child(3n+3){
 		@extend .col-md-8; padding: 0;
 		&, .desc-content{
 			float: left;
@@ -247,6 +253,14 @@ div.carousel-btn-content{
 		}
 		.desc-content{
 			width: 50%;
+			@extend .before-arrow;
+			&:before{
+				left: inherit;	
+				right: 0;
+				margin-left: 0;
+				margin-right: -7.5px;
+				margin-top: 0;
+			}
 		}
 	}
 
