@@ -477,14 +477,33 @@
 
 
 
+
+
+
+
+
+    //GSAP
+    var tl = new TimelineLite();
+    console.log(tl);
+    tl.to( $(".truck-1").eq(0), 18, {x: 1920, y: 0, ease: "linear"} )
+
+
+
+
+
+
+
+
+
+
   });
 })(jQuery);
 
 var isWebkit = /Webkit/i.test(navigator.userAgent),
-  isChrome = /Chrome/i.test(navigator.userAgent),
-  isMac = /Mac/i.test(navigator.userAgent),
-  isMobile = !!("ontouchstart" in window),
-  isAndroid = /Android/i.test(navigator.userAgent);
+    isChrome = /Chrome/i.test(navigator.userAgent),
+    isMac = /Mac/i.test(navigator.userAgent),
+    isMobile = !!("ontouchstart" in window),
+    isAndroid = /Android/i.test(navigator.userAgent);
 
 // COMMON FUNCTION
 

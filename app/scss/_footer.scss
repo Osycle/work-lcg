@@ -16,28 +16,54 @@
 	background-repeat: no-repeat;
 	background-position-y: bottom;
 }
-.footer-socicons{
-	font-size: 20px;
-	li{
-		margin-left: 15px;
+.phone-call{
+	img{
+		width: 22px;
 	}
 }
-.footer-content{
-	.payicons{
-		li{
-			margin: 0 15px;
-		}
+.envelope{
+	img{
+		width: 23px;
 	}
 }
 .footer-menu{
 	li{
-		margin: 0 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	a{
+		font-weight: 400;
+		//transition: all 0.1s linear;
+		&:hover{
+			font-weight: 500;
+			//color: lighten($color-1, 50%);
+		}
 	}
 }
-.footer-feedback{
-	.btn-def{
+.footer-socicons{
+	li{
+		text-align: center;
+		display: inline-block;
+		margin-left: 3px;
+		margin-right: 3px;
+	}
+	a{
+		border: 1px solid transparent;
+		padding: 6px;
+		width: 35px;
+		height: 35px;
+		display: block;
+		font-size: 18px;
 		&:hover{
-			background-color:darken($color-1, 10%);
+			border-color: white;
 		}
+	}
+}
+.footer-dev{
+	font-size: 0.88em;
+}
+.footer-contacts{
+	p{
+		@extend .float-right-md;
 	}
 }

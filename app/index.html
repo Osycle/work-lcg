@@ -257,7 +257,7 @@
               <div class="container slider-video">
                 <div class="slider-video-content">
                   <div class="video-content">
-                    <iframe class="col-md-3 col-md-offset-6" src="https://www.youtube.com/embed/R28lU1Ua8J0?color=white&autoplay=1"" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe class="col-md-3 col-md-offset-6" src="https://www.youtube.com/embed/R28lU1Ua8J0?color=white&autoplay=0"" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>
@@ -307,6 +307,25 @@
 
           </div>
         </div>
+
+
+        <div class="const-animation">
+          <div class="const-animation-content">
+            <div class="building-4 const-bg-el"></div>
+            <div class="container">
+              <div class="building-1 const-bg-el"></div>
+              <div class="factory-1 const-bg-el"></div>
+              <div class="factory-2 const-bg-el"></div>
+              <div class="building-2 const-bg-el"></div>
+            </div>
+            <div class="building-3 const-bg-el"></div>
+            <!-- TRUCKS -->
+            <div class="truck-1 const-bg-el"></div>
+            <div class="truck-2 const-bg-el"></div>
+
+          </div>
+        </div>
+
       </div>
       <!-- ./MAIN-CONTENT -->
     </main>
@@ -314,53 +333,58 @@
     <!-- FOOTER -->
     <footer id="footer" class="container-fluid text-center-sm bg-color-1">
       <div class="container">
-        <div class="footer-content clearfix color-white p-t-5">
-          <div class="footer-socicons col-md-2 m-v-15 text-left-md hover-color-1">
-            <ul class="list-inline">
-              <li><a href="" title=""><i class="fa fa-paper-plane"></i></a></li>
-              <li><a href="" title=""><i class="fa fa-facebook"></i></a></li>
-              <li><a href="" title=""><i class="fa fa-instagram"></i></a></li>
-              <li><a href="" title=""><i class="fa fa-whatsapp"></i></a></li>
-            </ul>
-          </div>
-          <div class="footer-menu col-md-6 text-center m-v-15 hidden-xs hidden-sm hover-color-1">
-            <ul class="list-inline">
-              <li><a href="addresses.html" title="">Адреса салонов</a></li>
-              <li><a href="shares.html" title="">Акции</a></li>
-              <li><a href="company.html" title="">Компания</a></li>
-              <li><a href="delivery.html" title="">Материалы</a></li>
-              <li><a href="partners-shares.html" title="">Партнерам</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4 footer-feedback">
-            <p class="m-v-15 col-md-7 hover-color-1"><a href="tel:+99897774444" title=""><big>+998 97 <big>777-44-44</big></big></a></p>
-            <span class="btn-def col-md-5 radius-2 m-v-10 m-auto"><a href="#modal-feedback" class="p-v-10 p-h-5" title="" data-toggle="modal"><small><b>Обратный звонок</b></small></a></span>
-          </div>
-          <div class="col-md-12 m-v-15 payicons">
-            <div class="text-center li-m-default">
-              <ul class="list-inline">
-                <li><a href="" title=""><img src="img/other/logo-click.png" alt=""></a></li>
-                <li><a href="" title=""><img src="img/other/logo-payme.png" alt=""></a></li>
-              </ul>
+        <div class="footer-content clearfix color-white p-t-60">
+
+          <div class="footer-logo col-md-3 m-v-15">
+            <div class="img-content">
+              <img src="img/footer-logo.png" alt="">
             </div>
           </div>
+
+          <div class="footer-menu col-md-6 text-center m-v-15 hidden-xs hidden-sm">
+            <ul class="list-inline">
+              <li><a href="index.html" title="">Главная</a></li>
+              <li><a href="productions.html" title="">Продукция</a></li>
+              <li><a href="reviews.html" title="">Отзывы</a></li>
+              <li><a href="contacts.html" title="">Контакты</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 m-v-15 parag-m-v-5 footer-contacts">
+            <p>
+              <span class="inline-block phone-call"><img src="img/icons/phone-call.svg" alt=""></span>
+              <span class="inline-block p-l-15">+998 99 777 66 55</span>
+            </p>
+            <p>
+              <span class="inline-block envelope"><img src="img/icons/envelope.svg" alt=""></span>
+              <span class="inline-block p-l-15">+998 99 777 66 55</span>
+            </p>
+
+          </div>
+
           <!-- DEV -->
-          <div class="row m-v-15">
-            <div class="col-md-12 p-h-15">
-              <div class="row">
-                <div class="dev hidden-xs hidden-sm float-right-md text-right-md col-md-4 m-v-15 p-h-15">
-                  <a href="https://lifestyle.uz/" class="link" title="Создание и продвижение сайтов">Создание сайтов <em><span class="color-1">Life </span></em>Style</a>
-                </div>
-                <div class="copyright col-md-4 m-v-15 p-h-15">
-                  <p>Copyright © <span class="color-1">Cosmos</span>
-                    <time id="copydate"></time>. Все права защищены</p>
-                  <script>
+          <div class="col-xs-12 m-v-15 footer-dev">
+            <div class="row">
+              <div class="copyright col-md-4 m-v-15 p-h-15">
+                <p>Copyright © <span class="color-2"><i>LCG</i></span>
+                  <time id="copydate"></time>. Все права защищены</p>
+                <script>
                   copydate.innerText = new Date().getFullYear()
-                  </script>
-                </div>
+                </script>
+              </div>
+              <div class="col-md-4 footer-socicons text-center">
+                <ul class="inline-list">
+                  <li><a href="" title=""><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="" title=""><i class="fa fa-twitter"></i></a></li>
+                </ul>
+              </div>
+              <div class="dev hidden-xs hidden-sm text-right-md col-md-4 m-v-15 p-h-15">
+                <a href="https://lifestyle.uz/" class="link" title="Создание и продвижение сайтов">Сайт разаботан в студии <em><span class="color-2">Life </span></em>Style</a>
               </div>
             </div>
           </div>
+   
+
         </div>
       </div>
     </footer>

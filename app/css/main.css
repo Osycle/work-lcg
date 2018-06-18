@@ -11242,10 +11242,10 @@ table {
   color: #fff; }
 
 .color-3 {
-  color: #424242; }
+  color: #F7D600; }
 
 .color-4 {
-  color: black; }
+  color: #453b00; }
 
 [class*="hover-color"] a, [class*="hover-underline"] a {
   -webkit-transition: all 0.3s ease-in-out;
@@ -11259,10 +11259,10 @@ table {
   color: #fff; }
 
 .hover-color-3 a:hover {
-  color: #424242; }
+  color: #F7D600; }
 
 .hover-color-4 a:hover {
-  color: black; }
+  color: #453b00; }
 
 .hover-underline a:hover {
   text-decoration: underline; }
@@ -11292,10 +11292,10 @@ table {
   background-color: #fff; }
 
 .bg-color-3 {
-  background-color: #424242; }
+  background-color: #F7D600; }
 
 .bg-color-4 {
-  background-color: black; }
+  background-color: #453b00; }
 
 .text-indent {
   text-indent: 30px; }
@@ -12505,6 +12505,83 @@ div.carousel-btn-content {
         margin-right: -7.5px;
         margin-top: 0; }
 
+.const-animation-content {
+  height: 440px;
+  position: relative;
+  background-color: white;
+  background-image: url("../img/const-animation/bg.png");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: repeat-x; }
+  .const-animation-content .container {
+    position: relative;
+    height: 100%; }
+
+.const-bg-el {
+  position: absolute;
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  bottom: 0; }
+
+.building-1 {
+  left: 0;
+  height: 392px;
+  width: 465px;
+  background-image: url("../img/const-animation/building-1.png");
+  z-index: 1; }
+
+.factory-1 {
+  width: 246px;
+  left: 465px;
+  height: 142px;
+  background-image: url("../img/const-animation/factory-1.png");
+  z-index: 1; }
+
+.factory-2 {
+  width: 160px;
+  left: 711px;
+  height: 120px;
+  background-image: url("../img/const-animation/factory-2.png");
+  z-index: 1; }
+
+.building-2 {
+  width: 286px;
+  right: 0;
+  height: 168px;
+  background-image: url("../img/const-animation/building-2.png");
+  z-index: 1; }
+
+.building-3 {
+  right: -250px;
+  height: 392px;
+  width: 465px;
+  background-image: url("../img/const-animation/building-1.png");
+  z-index: 0; }
+
+.building-4 {
+  width: 286px;
+  left: 0;
+  height: 168px;
+  background-image: url("../img/const-animation/building-2.png");
+  z-index: 0; }
+
+.truck-1 {
+  width: 134px;
+  height: 69px;
+  left: 40px;
+  z-index: 3;
+  background-image: url("../img/const-animation/truck-1.png"); }
+
+.truck-2 {
+  width: 134px;
+  height: 69px;
+  right: 40px;
+  z-index: 0;
+  background-image: url("../img/const-animation/truck-2.png"); }
+
 /* 
 		_footer.scss
 */
@@ -12519,19 +12596,39 @@ div.carousel-btn-content {
   background-repeat: no-repeat;
   background-position-y: bottom; }
 
-.footer-socicons {
-  font-size: 20px; }
-  .footer-socicons li {
-    margin-left: 15px; }
+.phone-call img {
+  width: 22px; }
 
-.footer-content .payicons li {
-  margin: 0 15px; }
+.envelope img {
+  width: 23px; }
 
 .footer-menu li {
-  margin: 0 5px; }
+  margin-left: 5px;
+  margin-right: 5px; }
 
-.footer-feedback .btn-def:hover {
-  background-color: #064058; }
+.footer-menu a {
+  font-weight: 400; }
+  .footer-menu a:hover {
+    font-weight: 500; }
+
+.footer-socicons li {
+  text-align: center;
+  display: inline-block;
+  margin-left: 3px;
+  margin-right: 3px; }
+
+.footer-socicons a {
+  border: 1px solid transparent;
+  padding: 6px;
+  width: 35px;
+  height: 35px;
+  display: block;
+  font-size: 18px; }
+  .footer-socicons a:hover {
+    border-color: white; }
+
+.footer-dev {
+  font-size: 0.88em; }
 
 /* 
 		_other.scss
@@ -12552,7 +12649,7 @@ div.carousel-btn-content {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
   .tparrows:hover svg {
-    fill: #424242; }
+    fill: #F7D600; }
 
 html body .tp-bullets.simplebullets.round .bullet {
   background-image: none;
@@ -12791,7 +12888,7 @@ html body .tp-bullets.simplebullets.round .bullet {
   left: 15px;
   position: relative; }
   .zoomWindowContainer * {
-    border: 5px solid rgba(0, 0, 0, 0.5) !important;
+    border: 5px solid rgba(69, 59, 0, 0.5) !important;
     -webkit-border-radius: 3px;
     border-radius: 3px; }
 
@@ -15083,7 +15180,7 @@ html .p-r-120 {
     float: left; }
   .float-none-md {
     float: none; }
-  .float-right-md {
+  .float-right-md, .footer-contacts p {
     float: right; }
   .float-none-md-impt {
     float: none !important; }

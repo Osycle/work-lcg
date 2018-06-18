@@ -272,4 +272,81 @@ div.carousel-btn-content{
 
 
 
+//const-animation
+.const-animation-content{
+	height: 440px;
+  position: relative;
+	background-color: white;
+	background-image: url('../img/const-animation/bg.png');
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  .container{
+  	position: relative;
+  	height: 100%;
+  }
+}
+.const-bg-el{
+	position: absolute;
+	background-size: contain;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	bottom: 0;
+}
+.building-1{
+	left: 0;
+	height: 392px;
+	width: 465px;
+	background-image: url('../img/const-animation/building-1.png');
+	z-index:1;
 
+}
+.factory-1{
+	width: 246px;
+	left: 465px;
+	height: 142px;
+	background-image: url('../img/const-animation/factory-1.png');
+	z-index:1;
+}
+.factory-2{
+	width: 160px;
+	left: 711px;
+	height: 120px;
+	background-image: url('../img/const-animation/factory-2.png');
+	z-index:1;
+}
+.building-2{
+	width: 286px;
+	right: 0;
+	height: 168px;
+	background-image: url('../img/const-animation/building-2.png');
+	z-index:1;
+}
+.building-3{
+	right: -250px;
+	height: 392px;
+	width: 465px;
+	background-image: url('../img/const-animation/building-1.png');
+	z-index: 0;
+}
+.building-4{
+	width: 286px;
+	left: 0;
+	height: 168px;
+	background-image: url('../img/const-animation/building-2.png');
+	z-index: 0;
+}
+.truck-1{
+	width: 134px;
+	height: 69px;
+	left: 40px;
+	z-index: 3;
+	background-image: url('../img/const-animation/truck-1.png');
+}
+.truck-2{
+	width: 134px;
+	height: 69px;
+	right: 40px;
+	z-index: 0;
+	background-image: url('../img/const-animation/truck-2.png');
+}
