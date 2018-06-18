@@ -88,12 +88,12 @@
     }, {});
 
     /*FLIKITY*/
-    function flickityPrevNext(className) {
+    function flickityPrevNext(className, classPrevNext) {
       var carouselWrapper = $(className);
       for (var i = 0; i < carouselWrapper.length; i++) {
         var crs = $(carouselWrapper[i]);
         var carousel = crs.find(".carousel-items");
-        var carouselPrevNext = crs.find(".carousel-prev-next");
+        var carouselPrevNext = $(classPrevNext).length ? $(classPrevNext) : crs.find(".carousel-prev-next");
         var btnNext = carouselPrevNext.find(".next");
         var btnPrev = carouselPrevNext.find(".prev");
         var flkty = carousel.data("flickity");
@@ -117,6 +117,7 @@
         //   selected.prev().addClass("is-prev");
         // });
       }
+      return carousel;
     }
 
     var arrowStyle = {
@@ -149,6 +150,43 @@
       });
       flickityPrevNext(".bnr-carousel");
     }
+    //bnr-carousel
+
+      $(".short-productions-carousel .carousel-items").flickity({
+        imagesLoaded: true,
+        autoPlay: false,
+        pauseAutoPlayOnHover: true,
+        arrowShape: arrowStyle,
+        initialIndex: 0,
+        friction: 1,
+        selectedAttraction: 1,
+        prevNextButtons: false,
+        draggable: checkSm(),
+        wrapAround: true,
+        pageDots: false,
+        contain: false,
+        percentPosition: true,
+        cellSelector: '.carousel-cell',
+        cellAlign: "center"
+      });
+      var shortProductionsCarousel = flickityPrevNext(".short-productions-carousel", ".short-productions .carousel-prev-next" );
+
+      shortProductionsCarousel.on("select.flickity", function(p1, p2){
+        flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell");
+      })
+      flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell")
+      function flickityCounter( carouselСounterСontent, counterElements ){
+        try{
+          counterElements = $(counterElements);
+          carouselСounterСontent = $(carouselСounterСontent);
+          var currentIndex = counterElements.siblings(".is-selected").index()+1;
+          var total = counterElements.length;
+          carouselСounterСontent.find(".carousel-counter-total").text( total );
+          carouselСounterСontent.find(".carousel-counter-current").text( currentIndex );
+        }catch(e){
+          console.error(e);
+        }
+      }
 
 
 
@@ -163,27 +201,6 @@
     });
 
 
-    //customers-carousel
-    //if( $('.customers-carousel .carousel-items figure').length >= 5 )
-    $('.customers-carousel .carousel-items').map(function(i, el) {
-      var fct = $(el).flickity({
-        imagesLoaded: true,
-        autoPlay: false,
-        pauseAutoPlayOnHover: true,
-        lazyLoad: true,
-        arrowShape: arrowStyle,
-        setGallerySize: true,
-        initialIndex: 0,
-        prevNextButtons: false,
-        draggable: false,
-        resize: false,
-        wrapAround: true,
-        pageDots: true,
-        contain: false,
-        percentPosition: true,
-        cellAlign: 'left'
-      })
-    })
 
 
     window.carouselArticle = function() {
@@ -231,27 +248,6 @@
 
 
 
-    if( $(".prev-next-dots").length )
-    $(".prev-next-dots").map( function(i, el){
-      var el = $(el);
-      var prev = el.find(".carousel-prev-next .prev");
-      var next = el.find(".carousel-prev-next .next");
-      el.find(".carousel-prev-next").remove();
-      el.find(".flickity-page-dots").addClass("carousel-prev-next");
-      el.find(".flickity-page-dots").append( next );
-      el.find(".flickity-page-dots").prepend( prev );
-    })
-    if( $(".flickity-prev-next-custom").length )
-      $(".flickity-prev-next-custom").map(function(i, el){
-        flickityPrevNext( $(el) );
-      });
-
-
-
-
-
-
-
 
 
 
@@ -293,7 +289,6 @@
       } //.originalEvent.wheelDelta
 
       //Анимированный расчёт
-
       if( counterAnimateContainer.length & !counterAnimateContainer.hasClass("counter-animate-started") & scrolledDiv( counterAnimateContainer ) ){
         counterAnimateContainer.addClass("counter-animate-started");
         $(".counter-animate").map( function(i, el){
