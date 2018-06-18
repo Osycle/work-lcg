@@ -364,6 +364,11 @@ div.carousel-btn-content{
 
 
 //const-animation
+@keyframes constBgScroll {
+	to{
+		background-position-x: 5000px;
+	}
+}
 .const-animation-content{
 	height: 440px;
   position: relative;
@@ -372,6 +377,7 @@ div.carousel-btn-content{
   background-size: contain;
   background-position: bottom;
   background-repeat: repeat-x;
+  //animation: constBgScroll 360s linear infinite;
   .container{
   	position: relative;
   	height: 100%;

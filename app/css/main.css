@@ -12523,6 +12523,14 @@ div.carousel-btn-content {
   -ms-transform: inherit;
   transform: inherit; }
 
+@-webkit-keyframes constBgScroll {
+  to {
+    background-position-x: 5000px; } }
+
+@keyframes constBgScroll {
+  to {
+    background-position-x: 5000px; } }
+
 .const-animation-content {
   height: 440px;
   position: relative;
