@@ -150,47 +150,69 @@
       });
       flickityPrevNext(".bnr-carousel");
     }
-    //bnr-carousel
+    //short-productions-carousel
+    $(".short-productions-carousel .carousel-items").flickity({
+      imagesLoaded: true,
+      autoPlay: false,
+      pauseAutoPlayOnHover: true,
+      arrowShape: arrowStyle,
+      initialIndex: 0,
+      friction: 1,
+      selectedAttraction: 1,
+      prevNextButtons: false,
+      draggable: checkSm(),
+      wrapAround: true,
+      pageDots: false,
+      contain: false,
+      percentPosition: true,
+      cellSelector: '.carousel-cell',
+      cellAlign: "center"
+    });
+    var shortProductionsCarousel = flickityPrevNext(".short-productions-carousel", ".short-productions .carousel-prev-next" );
 
-      $(".short-productions-carousel .carousel-items").flickity({
-        imagesLoaded: true,
-        autoPlay: false,
-        pauseAutoPlayOnHover: true,
-        arrowShape: arrowStyle,
-        initialIndex: 0,
-        friction: 1,
-        selectedAttraction: 1,
-        prevNextButtons: false,
-        draggable: checkSm(),
-        wrapAround: true,
-        pageDots: false,
-        contain: false,
-        percentPosition: true,
-        cellSelector: '.carousel-cell',
-        cellAlign: "center"
-      });
-      var shortProductionsCarousel = flickityPrevNext(".short-productions-carousel", ".short-productions .carousel-prev-next" );
-
-      shortProductionsCarousel.on("select.flickity", function(p1, p2){
-        flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell");
-      })
-      flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell")
-      function flickityCounter( carouselСounterСontent, counterElements ){
-        try{
-          counterElements = $(counterElements);
-          carouselСounterСontent = $(carouselСounterСontent);
-          var currentIndex = counterElements.siblings(".is-selected").index()+1;
-          var total = counterElements.length;
-          carouselСounterСontent.find(".carousel-counter-total").text( total );
-          carouselСounterСontent.find(".carousel-counter-current").text( currentIndex );
-        }catch(e){
-          console.error(e);
-        }
+    shortProductionsCarousel.on("select.flickity", function(p1, p2){
+      flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell");
+    })
+    flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell")
+    function flickityCounter( carouselСounterСontent, counterElements ){
+      try{
+        counterElements = $(counterElements);
+        carouselСounterСontent = $(carouselСounterСontent);
+        var currentIndex = counterElements.siblings(".is-selected").index()+1;
+        var total = counterElements.length;
+        carouselСounterСontent.find(".carousel-counter-total").text( total );
+        carouselСounterСontent.find(".carousel-counter-current").text( currentIndex );
+      }catch(e){
+        console.error(e);
       }
+    }
+
+    //short-news-carousel
+    var $shortNewsCarousel = $(".short-news-carousel .carousel-items").flickity({
+      imagesLoaded: true,
+      autoPlay: false,
+      pauseAutoPlayOnHover: true,
+      arrowShape: arrowStyle,
+      initialIndex: 0,
+      //friction: 1,
+      //selectedAttraction: 1,
+      prevNextButtons: false,
+      draggable: checkSm(),
+      wrapAround: true,
+      pageDots: false,
+      contain: false,
+      percentPosition: true,
+      cellSelector: 'figure',
+      cellAlign: "center"
+    });
 
 
-
-    $('.button-group').on('click', 'li', function() {
+    $('.short-news .button-carousel-nav').on( 'click', 'li', function() {
+      var index = $(this).index();
+      $shortNewsCarousel.flickity( 'select', index );
+    });
+    
+    $('.button-carousel-nav').on('click', 'li', function() {
       var that = $(this);
       var selector = that.attr('data-selector');
       that.addClass("is-selected");

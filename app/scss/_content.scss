@@ -363,6 +363,97 @@ div.carousel-btn-content{
 
 
 
+
+//short-news
+.short-news{
+	.entry-header{
+		background-color: $color-1;
+		position: relative;
+		.pie-xs{
+			@extend .cell-height;
+		}
+	}
+	.button-carousel-nav{
+		position: absolute;
+		bottom: 15px;
+		//left: 15px;
+		ul{
+			margin-left: -5px;
+			margin-right: -5px;
+			text-align: center;
+		}
+		li{
+			display: inline-block;
+			background-color: white;
+			transition: all 0.3s ease-in-out;
+			width: 30px;
+			opacity: 0.5;
+			height: 5px;
+			margin-left: 5px;
+			margin-right: 5px;
+			&.is-selected{
+				opacity: 1;
+			}
+		}
+	}
+	@media (max-width:991px) {
+		.button-carousel-nav{
+			width: 100%;
+			position: relative;
+			li{
+				margin-left: 10px;
+				margin-right: 10px;
+				height: 25px;
+			}
+		}
+	}
+}
+.short-news-carousel{
+	figure{
+		.img-content{
+			background-position: center;
+			.img{
+				@extend .fuller;	
+				background-position: center;
+				background-size: cover;
+			}
+		}
+		.desc-content{
+			@extend .cell-height;
+			padding: 10px 10%;
+			position: relative;
+			h1, h2, h3, p{
+				text-shadow: 0 0 4px rgba(black, 0.15);
+			}
+		}
+		.btn-def{
+			a{
+				padding: 15px 25px;
+			}
+
+		}
+	}
+	@media (max-width:991px) {
+		figure{
+			.desc-content{
+				height: auto;
+			}
+		}
+	}
+}
+
+
+
+
+//short-advantage
+
+
+
+
+
+
+
+
 //const-animation
 @keyframes constBgScroll {
 	to{

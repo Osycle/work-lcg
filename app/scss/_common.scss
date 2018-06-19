@@ -711,6 +711,11 @@ label{
 			margin-left: -22.5px;
 		}
 	}
+	&.before-color-1{
+		&:before{
+			background-color: $color-1;
+		}
+	}
 }
 h1,h2,h3,h4,h5{
 	color: inherit;
@@ -728,7 +733,7 @@ h1, h2, h3, h4{
 h1{
 	@extend .h1-style;
 	position: relative;
-	font-weight: 600;	
+	font-weight: 700;	
 	font-size: em(30, 16);
 	text-transform: uppercase;
 	padding-bottom: 15px;
@@ -763,7 +768,22 @@ h5{
 	font-size: em(14, 16);
 	font-family: $font-family-1;
 }
-
+h1,h2,h3,h4,h5 {
+	&[align='center']{
+		&:before{
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+.h1-before-none{
+	h1{
+		padding-bottom: 0;
+		&:before{
+			display: none;
+		}
+	}
+}
 blockquote{
 	padding: 0 15px 0 35px;
 	border-left: 8px solid;
@@ -786,7 +806,7 @@ main{
 	background-color: white;
 	color: black;
 	p{
-		line-height: 130%;
+		line-height: 140%;
 		font-size: 0.9em;
 	}
 	.parag-gray{
