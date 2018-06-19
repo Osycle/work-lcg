@@ -500,16 +500,37 @@
 
 
     //GSAP
-    var tl = new TimelineLite();
-    console.log(tl);
-    tl.to( $(".truck-1").eq(0), 18, {x: 1920, y: 0, ease: "linear"} )
+    var tl_1 = new TimelineMax({
+      repeat: -1
+    });
+    var tl_2 = new TimelineMax({
+      repeat: -1
+    });
+
+  
+    var countainerWidth = $(".const-animation").width();
+    var truck_1 = $(".truck-1").eq(0);
+    var truck_2 = $(".truck-2").eq(0);
+
+    //tl_1.fromTo( truck_1, 18, {left: -200, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
+    //tl_2.fromTo( truck_2, 30, {right: -100, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
 
 
+    var canvas = $("#can-2")[0];
+    var ctx = canvas.getContext("2d");
+    function canvasImage(src, x, y, width, height){
+      var img = new Image();
+      img.src = src;
+      img.onload = function(){
+        ctx.drawImage(img, x, y, width, height);
+      }
 
 
+    }
 
-
-
+    //$(canvas).attr("width", countainerWidth)
+    //canvasImage( "../img/const-animation/factory-1.png", 45, 298, 246, 142);
+    canvasImage( "../img/const-animation/factory-1.png", 0, 0, 150, 150);
 
 
 
@@ -658,4 +679,24 @@ function scrolledDiv(el) {
   }
 
   return elBottom <= docViewBottom && elTop >= docViewTop;
+}
+
+
+function intSpace( int, replaceType ){
+    var cnt = 0;
+    var newInt = "";
+    int = int*1;
+    replaceType = replaceType || " ";
+    if( typeof int === NaN )
+      return;
+    var arrInt = (int+"").match(/([0-9])/gim).reverse();
+    for (var i = 0; i < arrInt.length; i++) {
+      cnt++;
+      newInt = arrInt[i]+newInt
+      if(cnt === 3){
+        newInt = replaceType+newInt;
+        cnt = 0;
+      }
+    }
+    return newInt;
 }

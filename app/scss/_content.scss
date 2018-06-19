@@ -445,9 +445,23 @@ div.carousel-btn-content{
 
 
 
-//short-advantage
-
-
+//short-advantages
+.short-advantages-items{
+	figure{
+		@extend .h1-before-none;
+		h1{
+			color: gray;
+			line-height: 100%;
+			font-size: 1.6em;
+			margin-top: 0;
+			font-weight: 700;
+		}
+		.img-content{
+			padding-top: 3px;
+			vertical-align: top;
+		}
+	}
+}
 
 
 
@@ -457,8 +471,14 @@ div.carousel-btn-content{
 //const-animation
 @keyframes constBgScroll {
 	to{
-		background-position-x: 5000px;
+		background-position-x: 6000px;
 	}
+}
+.const-animation{
+	canvas{
+  	//width: 100%;
+  	//height: 440px;
+  }
 }
 .const-animation-content{
 	height: 440px;
@@ -473,13 +493,14 @@ div.carousel-btn-content{
   	position: relative;
   	height: 100%;
   }
+
 }
 .const-bg-el{
 	position: absolute;
 	background-size: contain;
 	background-position: bottom;
 	background-repeat: no-repeat;
-	bottom: 0;
+	bottom: -2px;
 }
 .building-1{
 	left: 0;
@@ -494,14 +515,14 @@ div.carousel-btn-content{
 	left: 465px;
 	height: 142px;
 	background-image: url('../img/const-animation/factory-1.png');
-	z-index:1;
+	z-index:0;
 }
 .factory-2{
 	width: 160px;
 	left: 711px;
 	height: 120px;
 	background-image: url('../img/const-animation/factory-2.png');
-	z-index:1;
+	z-index:0;
 }
 .building-2{
 	width: 286px;
@@ -532,8 +553,8 @@ div.carousel-btn-content{
 	background-image: url('../img/const-animation/truck-1.png');
 }
 .truck-2{
-	width: 134px;
-	height: 69px;
+	width: 94px;
+	height: 48px;
 	right: 40px;
 	z-index: 0;
 	background-image: url('../img/const-animation/truck-2.png');
