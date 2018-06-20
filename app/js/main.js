@@ -310,27 +310,6 @@
         if (minMenu) minMenu.removeClass("scrolled");
       } //.originalEvent.wheelDelta
 
-      //Анимированный расчёт
-      if( counterAnimateContainer.length & !counterAnimateContainer.hasClass("counter-animate-started") & scrolledDiv( counterAnimateContainer ) ){
-        counterAnimateContainer.addClass("counter-animate-started");
-        $(".counter-animate").map( function(i, el){
-          var el = $(el);
-          var num = el.text()*1;
-          if( isNaN(num) )
-            return;
-          var cnt = 0;
-          el.text(cnt)
-          var interval = setInterval(function(){
-            el.text( Math.round(cnt += num/(2*25) ) )
-            if( cnt >= num ){
-              clearInterval( interval );
-              el.text( num );
-            }
-          }, 50)
-        })
-      }
-
-
     });
 
 
@@ -411,6 +390,7 @@
 
 
 
+/*
     var revSlider = $('.rev-slider') || null;
     // Правильное корректировка высоты при col-md-8
     var desctopHeight = 450 * (2-8/12)-30+6;
@@ -482,7 +462,6 @@
 
         })
 
-
     });
     if (revSlider.length) {
       var prevnext = $(".tparrows").append('<svg viewBox="0 0 100 100"><path d="m 155.5,511.05029 c -14.92812,-2.39991 -25.15735,-7.59291 -35.62063,-18.08328 -20.010278,-20.06208 -24.367553,-48.94152 -11.18912,-74.15998 4.27918,-8.18871 3.4896,-7.32491 85.11756,-93.11894 44.14125,-46.3941 66.05106,-70.10921 65.53977,-70.94004 -0.42243,-0.68643 -30.03595,-31.85928 -65.80782,-69.273 C 108.45042,96.480286 112.98308,101.40536 108.7963,93.394785 95.502188,67.959105 99.833686,38.961875 119.90555,19.023899 132.47133,6.5419303 146.90753,0.52541276 164,0.64682842 c 15.52694,0.11029502 29.74307,5.20335378 40.51825,14.51603758 4.19014,3.621416 169.75189,176.117894 189.1673,197.090774 23.42252,25.30142 22.81842,61.89665 -1.45102,87.9006 -34.30717,36.75907 -182.76162,192.36607 -187.15932,196.17668 -13.03799,11.29743 -33.349,17.32797 -49.57521,14.71937 z" class="arrow" style="transform: scale(0.19);"></path></svg>')
@@ -493,12 +472,32 @@
     $(".flickity-btn-1 .flickity-prev-next-button").append('<svg viewBox="0 0 100 100"><path d="m 155.5,511.05029 c -14.92812,-2.39991 -25.15735,-7.59291 -35.62063,-18.08328 -20.010278,-20.06208 -24.367553,-48.94152 -11.18912,-74.15998 4.27918,-8.18871 3.4896,-7.32491 85.11756,-93.11894 44.14125,-46.3941 66.05106,-70.10921 65.53977,-70.94004 -0.42243,-0.68643 -30.03595,-31.85928 -65.80782,-69.273 C 108.45042,96.480286 112.98308,101.40536 108.7963,93.394785 95.502188,67.959105 99.833686,38.961875 119.90555,19.023899 132.47133,6.5419303 146.90753,0.52541276 164,0.64682842 c 15.52694,0.11029502 29.74307,5.20335378 40.51825,14.51603758 4.19014,3.621416 169.75189,176.117894 189.1673,197.090774 23.42252,25.30142 22.81842,61.89665 -1.45102,87.9006 -34.30717,36.75907 -182.76162,192.36607 -187.15932,196.17668 -13.03799,11.29743 -33.349,17.32797 -49.57521,14.71937 z" class="arrow" style="transform: scale(0.19)"></path></svg>')
 
 
+*/
 
 
 
-
-
-
+    var soundWindcity = new Howl({
+      src: ['../img/const-animation/sounds/windcity-1.mp3'],
+      autoplay: false,
+      loop: true,
+      volume: 0.5,
+      onend: function() {}
+    });
+    var soundTruck_1 = new Howl({
+      src: ['../img/const-animation/sounds/truck-2-35.mp3'],
+      autoplay: false,
+      loop: false,
+      volume: 1,
+      onend: function() {}
+    });
+    var soundTruck_2 = new Howl({
+      src: ['../img/const-animation/sounds/truck-5-42.mp3'],
+      autoplay: false,
+      loop: false,
+      volume: 0.4,
+      onend: function() {}
+    });
+    
     //GSAP
     var tl_1 = new TimelineMax({
       repeat: -1
@@ -511,11 +510,22 @@
     var countainerWidth = $(".const-animation").width();
     var truck_1 = $(".truck-1").eq(0);
     var truck_2 = $(".truck-2").eq(0);
+    soundWindcity.play();
 
-    //tl_1.fromTo( truck_1, 18, {left: -200, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
-    //tl_2.fromTo( truck_2, 30, {right: -100, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
+    soundTruck_1.play();
+    tl_1.fromTo( truck_1, 36, {left: -200, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
+    .addCallback(function(){
+      soundTruck_1.play();
+    })
 
+    soundTruck_2.play();
+    tl_2.fromTo( truck_2, 43, {right: -90, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
+    .addCallback(function(){
+      soundTruck_2.play();
+    })
 
+// 
+/*
     var canvas = $("#can-2")[0];
     var ctx = canvas.getContext("2d");
     function canvasImage(src, x, y, width, height){
@@ -525,13 +535,12 @@
         ctx.drawImage(img, x, y, width, height);
       }
 
-
     }
 
     //$(canvas).attr("width", countainerWidth)
     //canvasImage( "../img/const-animation/factory-1.png", 45, 298, 246, 142);
     canvasImage( "../img/const-animation/factory-1.png", 0, 0, 150, 150);
-
+*/
 
 
   });
