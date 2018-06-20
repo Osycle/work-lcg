@@ -140,7 +140,7 @@
         friction: 1,
         selectedAttraction: 1,
         prevNextButtons: false,
-        draggable: checkSm(),
+        draggable: false,
         wrapAround: true,
         pageDots: false,
         contain: false,
@@ -160,7 +160,7 @@
       friction: 1,
       selectedAttraction: 1,
       prevNextButtons: false,
-      draggable: checkSm(),
+      draggable: false,
       wrapAround: true,
       pageDots: false,
       contain: false,
@@ -197,7 +197,7 @@
       //friction: 1,
       //selectedAttraction: 1,
       prevNextButtons: false,
-      draggable: checkSm(),
+      draggable: false,
       wrapAround: true,
       pageDots: false,
       contain: false,
@@ -390,157 +390,156 @@
 
 
 
-/*
-    var revSlider = $('.rev-slider') || null;
-    // Правильное корректировка высоты при col-md-8
-    var desctopHeight = 450 * (2-8/12)-30+6;
-    onResized(function() {
-      if (revSlider.length != 0)
-        revSlider.revolution({
-          delay: 6000,
-          //startwidth: checkSm() ? $(window).width() : checkMd() ? 970 : 1170,
-          startheight: checkSm() ? desctopHeight-50 : desctopHeight,
-          autoHeight: "off",
-          fullScreenAlignForce: "off",
-
-          onHoverStop: "on",
-
-          thumbWidth: 100,
-          thumbHeight: 50,
-          thumbAmount: 3,
-
-          hideThumbsOnMobile: "on",
-          hideBulletsOnMobile: "on",
-          hideArrowsOnMobile: "on",
-          hideThumbsUnderResoluition: 0,
-
-          hideThumbs: 500,
-          hideTimerBar: "on",
-
-          keyboardNavigation: "off",
-
-          navigationType: "bullet",
-          navigationArrows: "solo",
-          navigationStyle: "round",
-
-          navigationHAlign: "center",
-          navigationVAlign: "bottom",
-          navigationHOffset: 0,
-          navigationVOffset: 30,
-
-          soloArrowLeftHalign: "left",
-          soloArrowLeftValign: "center",
-          soloArrowLeftHOffset: 30,
-          soloArrowLeftVOffset: 0,
-
-          soloArrowRightHalign: "right",
-          soloArrowRightValign: "center",
-          soloArrowRightHOffset: 30,
-          soloArrowRightVOffset: 0,
 
 
-          touchenabled: "off",
-          swipe_velocity: "0.7",
-          swipe_max_touches: "1",
-          swipe_min_touches: "1",
-          drag_block_vertical: "false",
 
-          stopAtSlide: -1,
-          stopAfterLoops: -1,
-          hideCaptionAtLimit: 0,
-          hideAllCaptionAtLilmit: 0,
-          hideSliderAtLimit: 0,
-
-          fullWidth: "on",
-          fullScreen: "off",
-          fullScreenOffsetContainer: "",
-
-          dottedOverlay: "none",
-          forceFullWidth: "off",
-
-          shadow: 0
-
-        })
-
+    //GSAP
+    var tlTruck_1 = new TimelineMax({ 
+      repeat: -1,
+      paused: true
     });
-    if (revSlider.length) {
-      var prevnext = $(".tparrows").append('<svg viewBox="0 0 100 100"><path d="m 155.5,511.05029 c -14.92812,-2.39991 -25.15735,-7.59291 -35.62063,-18.08328 -20.010278,-20.06208 -24.367553,-48.94152 -11.18912,-74.15998 4.27918,-8.18871 3.4896,-7.32491 85.11756,-93.11894 44.14125,-46.3941 66.05106,-70.10921 65.53977,-70.94004 -0.42243,-0.68643 -30.03595,-31.85928 -65.80782,-69.273 C 108.45042,96.480286 112.98308,101.40536 108.7963,93.394785 95.502188,67.959105 99.833686,38.961875 119.90555,19.023899 132.47133,6.5419303 146.90753,0.52541276 164,0.64682842 c 15.52694,0.11029502 29.74307,5.20335378 40.51825,14.51603758 4.19014,3.621416 169.75189,176.117894 189.1673,197.090774 23.42252,25.30142 22.81842,61.89665 -1.45102,87.9006 -34.30717,36.75907 -182.76162,192.36607 -187.15932,196.17668 -13.03799,11.29743 -33.349,17.32797 -49.57521,14.71937 z" class="arrow" style="transform: scale(0.19);"></path></svg>')
-      $(".arrow-container.container").append(prevnext).css("top", "350");
-      $(".arrow-container.container").css("top", "-" + ($(".rev-slider").css("height").match(/(\d+)/gim)[0] / 2) + "px");
-    }
-    $(".flickity-btn-1 .flickity-prev-next-button svg").remove()
-    $(".flickity-btn-1 .flickity-prev-next-button").append('<svg viewBox="0 0 100 100"><path d="m 155.5,511.05029 c -14.92812,-2.39991 -25.15735,-7.59291 -35.62063,-18.08328 -20.010278,-20.06208 -24.367553,-48.94152 -11.18912,-74.15998 4.27918,-8.18871 3.4896,-7.32491 85.11756,-93.11894 44.14125,-46.3941 66.05106,-70.10921 65.53977,-70.94004 -0.42243,-0.68643 -30.03595,-31.85928 -65.80782,-69.273 C 108.45042,96.480286 112.98308,101.40536 108.7963,93.394785 95.502188,67.959105 99.833686,38.961875 119.90555,19.023899 132.47133,6.5419303 146.90753,0.52541276 164,0.64682842 c 15.52694,0.11029502 29.74307,5.20335378 40.51825,14.51603758 4.19014,3.621416 169.75189,176.117894 189.1673,197.090774 23.42252,25.30142 22.81842,61.89665 -1.45102,87.9006 -34.30717,36.75907 -182.76162,192.36607 -187.15932,196.17668 -13.03799,11.29743 -33.349,17.32797 -49.57521,14.71937 z" class="arrow" style="transform: scale(0.19)"></path></svg>')
+    var tlTruck_2 = new TimelineMax({ 
+      repeat: -1, 
+      paused: true
+    });
+  
+    var countainerWidth = $(".const-animation").width();
+
+    var truck_1 = $(".truck-1").eq(0); // 1 грузовик
+    var truck_2 = $(".truck-2").eq(0); // 2 грузовик
+    
 
 
-*/
+    //Анимация 1 грузовика
+    tlTruck_1.fromTo( truck_1, 36, {left: -134, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truck-1" ).addCallback(function(){
+      soundtlTruck_1.play();
+    })
+    // Анимация 2 грузовика
+    tlTruck_2.fromTo( truck_2, 43, {right: -94, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"} ).addCallback(function(){
+      soundtlTruck_2.play();
+    })
+
+    $(window).on("scroll", function(){
+    
+      var el = $(".const-animation")
+      var docViewTop = $(window).scrollTop(),
+          docViewBottom = docViewTop + $(window).height(),
+          elTop = el.offset().top,
+          elBottom = elTop + el.height();
+      var persentElTop = (elTop-100)/100
+      var persentdocViewTop = docViewTop/persentElTop << 0;
+      //console.log( elTop, docViewTop, persentdocViewTop )
+
+      //if( persentdocViewTop > 50 ){
+        Howler.volume( roundFix(persentdocViewTop/50-0.8, 2) );
+        console.log( roundFix(persentdocViewTop/50-0.8, 2) )
+      //}
+    })
+    $(document).on("click", ".truck-1", function(){
+      if( !soundtlTruckSignal_1.playStatus ){
+        soundtlTruckSignal_1.play();
+        soundtlTruck_1.stop()
+        tlTruck_1.stop()
+
+        setTimeout(function(){
+            soundtlTruck_1.play()
+            tlTruck_1.play()
+        
+        }, 3000)
+      }
+    })
+    $(document).on("click", ".truck-2", function(){
+      if( !soundtlTruckSignal_2.playStatus ){
+        soundtlTruckSignal_2.play();
+        soundtlTruck_2.stop()
+        tlTruck_2.stop()
+
+        setTimeout(function(){
+            soundtlTruck_2.play()
+            tlTruck_2.play()
+        
+        }, 3000)
+      }
+    })
 
 
-
-    var soundWindcity = new Howl({
+    //HOWL
+    Howler.volume(0.1)
+    window.soundWindcity = new Howl({
       src: ['../img/const-animation/sounds/windcity-1.mp3'],
-      autoplay: false,
-      loop: true,
-      volume: 0.5,
-      onend: function() {}
-    });
-    var soundTruck_1 = new Howl({
-      src: ['../img/const-animation/sounds/truck-2-35.mp3'],
       autoplay: false,
       loop: false,
       volume: 1,
+      onload: function(){
+        this.play()
+        this.loop(true);
+      },
       onend: function() {}
     });
-    var soundTruck_2 = new Howl({
+    var soundtlTruck_1 = new Howl({
+      src: ['../img/const-animation/sounds/truck-2-35.mp3'],
+      autoplay: false,
+      loop: false,
+      volume: 0.7,
+      onload: function(){
+        this.play(); //howl play        
+        tlTruck_1.play();//gsap PLAY
+      },
+      onend: function() {}
+    });
+    var soundtlTruck_2 = new Howl({
       src: ['../img/const-animation/sounds/truck-5-42.mp3'],
       autoplay: false,
       loop: false,
       volume: 0.4,
+      onload: function(){
+        this.play(); //howl play        
+        tlTruck_2.play();//gsap PLAY
+      },
+      onend: function() {}
+    });
+    var soundtlTruckSignal_1 = new Howl({
+      src: ['../img/const-animation/sounds/truck-4-2.mp3'],
+      autoplay: false,
+      loop: false,
+      volume: 0.1,
+      rate: 0.9,
+      pool: 5,
+      playStatus: false,
+      onload: function(){},
+      onplay: function(){
+        var that = this;
+        this.playStatus = true;
+        setTimeout(function(){
+          that.playStatus = false;
+        }, 2000)
+      },
+      onend: function() {}
+    });
+    var soundtlTruckSignal_2 = new Howl({
+      src: ['../img/const-animation/sounds/truck-4-2.mp3'],
+      autoplay: false,
+      loop: false,
+      volume: 0.05,
+      rate: 0.9,
+      pool: 5,
+      playStatus: false,
+      onload: function(){},
+      onplay: function(){
+        var that = this;
+        this.playStatus = true;
+        setTimeout(function(){
+          that.playStatus = false;
+        }, 2000)
+      },
       onend: function() {}
     });
     
-    //GSAP
-    var tl_1 = new TimelineMax({
-      repeat: -1
-    });
-    var tl_2 = new TimelineMax({
-      repeat: -1
-    });
 
-  
-    var countainerWidth = $(".const-animation").width();
-    var truck_1 = $(".truck-1").eq(0);
-    var truck_2 = $(".truck-2").eq(0);
-    soundWindcity.play();
 
-    soundTruck_1.play();
-    tl_1.fromTo( truck_1, 36, {left: -200, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
-    .addCallback(function(){
-      soundTruck_1.play();
-    })
 
-    soundTruck_2.play();
-    tl_2.fromTo( truck_2, 43, {right: -90, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"}, "truckDefTime" )
-    .addCallback(function(){
-      soundTruck_2.play();
-    })
 
-// 
-/*
-    var canvas = $("#can-2")[0];
-    var ctx = canvas.getContext("2d");
-    function canvasImage(src, x, y, width, height){
-      var img = new Image();
-      img.src = src;
-      img.onload = function(){
-        ctx.drawImage(img, x, y, width, height);
-      }
 
-    }
-
-    //$(canvas).attr("width", countainerWidth)
-    //canvasImage( "../img/const-animation/factory-1.png", 45, 298, 246, 142);
-    canvasImage( "../img/const-animation/factory-1.png", 0, 0, 150, 150);
-*/
 
 
   });
@@ -690,6 +689,11 @@ function scrolledDiv(el) {
   return elBottom <= docViewBottom && elTop >= docViewTop;
 }
 
+function roundFix( num, cnt ){
+  num = num+""
+  cnt = cnt + (/./.test(num) || null ? 1 : 0);
+  return num.substring( 0,  cnt)*1
+}
 
 function intSpace( int, replaceType ){
     var cnt = 0;

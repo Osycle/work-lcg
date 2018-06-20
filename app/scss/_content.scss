@@ -477,11 +477,11 @@ div.carousel-btn-content{
 @keyframes skySmoke {
 	from{
 		opacity: 0;
-		transform: scale(0.0, 0.0) matrix(0.1,0,1.1,1,0,30);
+		transform: scale(0.0, 0.0) matrix(1,0,0,1,0,40);
 	}
 	45%{
 		opacity: 0.3;
-		transform: scale(0.3, 0.5) matrix(1,0.08,0.3,1,0,14);
+		transform: scale(0.3, 0.5) matrix(1,0,0,1,0,20);
 	}
 	to{
 		transform: scale(1, 1) matrix(1,0,0.1,0.8,0,0);
@@ -557,19 +557,19 @@ div.carousel-btn-content{
   width: 142px;
 	height: 61px;
   left: 647px;
-  animation: skySmoke 6s linear infinite 1.5s;
+  animation: skySmoke 12s linear infinite 3s;
 }
 .sky-2{
   width: 142px;
 	height: 61px;
   left: 619px;
-  animation: skySmoke 6s linear infinite;
+  animation: skySmoke 12s linear infinite;
 }
 .sky-3{
   width: 51px;
 	height: 49px;
   left: 578px;
-  animation: skySmoke2 6s linear infinite;
+  animation: skySmoke2 8s linear infinite;
 	bottom: 140px;
 	z-index:2;
 	opacity: 0.3;
@@ -580,14 +580,14 @@ div.carousel-btn-content{
 .sky-1, .sky-2{
 	bottom: 120px;
 	z-index:2;
-	opacity: 0.3;
+	opacity: 0.0;
 	background-image: url('../img/const-animation/mini-sky-1.svg');
 	transform-origin: 0 100%;
 }
 .building-2{
 	width: 286px;
 	height: 168px;
-	right: 0;
+	right: -50px;
 	background-image: url('../img/const-animation/building-2.png');
 	z-index:4;
 }
@@ -601,7 +601,7 @@ div.carousel-btn-content{
 .building-4{
 	width: 286px;
 	height: 168px;
-	left: 15px;
+	left: 30px;
 	background-image: url('../img/const-animation/building-2.png');
 	z-index: 4;
 }
@@ -618,4 +618,28 @@ div.carousel-btn-content{
 	right: 40px;
 	z-index: 3;
 	background-image: url('../img/const-animation/truck-2.png');
+}
+@media (max-width:991px) {
+	.building-4, .building-3, .building-2, .building-1{
+		display: none;
+	}
+	.factory-1{
+		left: 0;
+	}
+	.factory-2{
+		left: 220px;
+	}
+	.sky-1{
+		left: 180px;
+	}
+	.sky-2{
+		left: 152px;
+	}
+	.sky-3{
+		left: 115px;
+	}
+
+	.const-animation-content{
+		background-size: cover;
+	}
 }
