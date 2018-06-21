@@ -560,8 +560,8 @@ table {
 	.pagination{
 		li{
 			display: inline-block;
-			border-radius: 7px;
-			margin: 0 3px;
+			border-radius: 1px;
+			//margin: 0 3px;
 			font-weight: 500;
 			width: 30px;
 			height: 30px;
@@ -703,7 +703,7 @@ label{
 		bottom: 0;
 		@media ( max-width:991px ){
 			left: 50%;
-			margin-left: -22.5px;
+			transform: translateX(-50%);
 		}
 	}
 	&.before-color-1{
@@ -739,7 +739,7 @@ h2{
 	@extend .h1-style;
 	position: relative;
 	font-weight: 600;
-	font-size: em(25, 16);
+	font-size: em(26, 16);
 	line-height: 125%;
 	padding-bottom: 15px;
 	margin-bottom: 15px;
@@ -749,16 +749,16 @@ h3{
 	position: relative;
 	font-weight: 600;
 	padding-bottom: 15px;
-	font-size: em(18, 16);
+	font-size: em(20, 16);
 	line-height: 125%;
 }
 h4{
-	font-weight: 500;
+	font-weight: 700;
 	line-height: 120%;
-	font-size: em(16, 16);
+	font-size: em(18, 16);
 }
 h5{
-	font-weight: 500;
+	font-weight: 800;
 	line-height: 110%;
 	font-size: em(14, 16);
 	font-family: $font-family-1;
@@ -779,6 +779,23 @@ h1,h2,h3,h4,h5 {
 		}
 	}
 }
+.h2-before-none{
+	h2{
+		padding-bottom: 0;
+		&:before{
+			display: none;
+		}
+	}
+}
+.h3-before-none{
+	h3{
+		padding-bottom: 0;
+		&:before{
+			display: none;
+		}
+	}
+}
+
 blockquote{
 	padding: 0 15px 0 35px;
 	border-left: 8px solid;
@@ -801,8 +818,8 @@ main{
 	background-color: white;
 	color: black;
 	p{
-		line-height: 140%;
-		font-size: 0.9em;
+		line-height: 145%;
+		font-size: 0.95em;
 	}
 	.parag-gray{
 		p{
@@ -834,7 +851,8 @@ hr{
 	}
 }
 .breadcrumb-container{
-	margin: 30px 0;
+
+
 	@media (min-width:992px){
 		//position: absolute;
 		//width: 20%;

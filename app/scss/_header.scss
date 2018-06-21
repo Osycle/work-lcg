@@ -7,7 +7,7 @@
 										 ---HEADER---
 */
 
-$header-top-height: 200px; 
+$header-top-height: 120px; 
 $header-middle-height: 90px; 
 $header-bottom-height: 50px;
 $header-min-menu: 70px;
@@ -31,7 +31,8 @@ header{
 }
 .header-hidden{
 	//position: relative;
-	height: $header-top-height + $header-middle-height + $header-bottom-height;
+	height: $header-top-height;
+	background-color: #fafafa;
 	display: none;
 	@media ( max-width: 991px ){
 		height: 100px;
@@ -87,17 +88,23 @@ header{
 		& > li{
 			display: inline-block;
 			position: relative;
-			//margin: 0 10px;
+			letter-spacing: 0;
+			transition: all 0.3s ease;
 			&:last-child{
 				border: 0;
 			}
 			& > a{
 				text-align: center;
 				display: block;
-				padding: 15px 30px;
+				transition: all 0.3s ease;
+				padding: 15px 20px;
 			}
 			&:hover{
-				font-weight: 700;
+				a{
+					font-weight: 600;
+					letter-spacing: 1px;
+					//color: $color-1;
+				}
 				.sub-menu-1{
 					transform: none;transform: unset;
 					opacity: 1;
@@ -236,7 +243,7 @@ header{
 		padding: 20px 0;
 		width: 100%;
 		img{
-			width: 80px;
+			width: 87px;
 		}
 	}
 	.min-menu-bar{

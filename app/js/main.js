@@ -119,6 +119,18 @@
       }
       return carousel;
     }
+    function flickityCounter( carouselСounterСontent, counterElements ){
+      try{
+        counterElements =         $(counterElements);
+        carouselСounterСontent =  $(carouselСounterСontent);
+        var currentIndex = counterElements.siblings(".is-selected").index()+1;
+        var total = counterElements.length;
+        carouselСounterСontent.find(".carousel-counter-total").text( total );
+        carouselСounterСontent.find(".carousel-counter-current").text( currentIndex );
+      }catch(e){
+        console.error(e);
+      }
+    }
 
     var arrowStyle = {
       x0: 10,
@@ -129,7 +141,7 @@
       x3: 30
     };
 
-    //bnr-carousel
+    /*bnr-carousel*/
     if( $(".bnr-carousel .carousel-items").length ){
       $(".bnr-carousel .carousel-items").flickity({
         imagesLoaded: true,
@@ -150,77 +162,119 @@
       });
       flickityPrevNext(".bnr-carousel");
     }
-    //short-productions-carousel
-    $(".short-productions-carousel .carousel-items").flickity({
-      imagesLoaded: true,
-      autoPlay: false,
-      pauseAutoPlayOnHover: true,
-      arrowShape: arrowStyle,
-      initialIndex: 0,
-      friction: 1,
-      selectedAttraction: 1,
-      prevNextButtons: false,
-      draggable: false,
-      wrapAround: true,
-      pageDots: false,
-      contain: false,
-      percentPosition: true,
-      cellSelector: '.carousel-cell',
-      cellAlign: "center"
-    });
-    var shortProductionsCarousel = flickityPrevNext(".short-productions-carousel", ".short-productions .carousel-prev-next" );
 
-    shortProductionsCarousel.on("select.flickity", function(p1, p2){
-      flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell");
-    })
-    flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell")
-    function flickityCounter( carouselСounterСontent, counterElements ){
-      try{
-        counterElements = $(counterElements);
-        carouselСounterСontent = $(carouselСounterСontent);
-        var currentIndex = counterElements.siblings(".is-selected").index()+1;
-        var total = counterElements.length;
-        carouselСounterСontent.find(".carousel-counter-total").text( total );
-        carouselСounterСontent.find(".carousel-counter-current").text( currentIndex );
-      }catch(e){
-        console.error(e);
-      }
+
+
+    /*short-productions-carousel*/
+    if( $(".short-productions-carousel .carousel-items figure").length >= 3  ){
+      $(".short-productions-carousel .carousel-items").flickity({
+        imagesLoaded: true,
+        autoPlay: false,
+        pauseAutoPlayOnHover: true,
+        arrowShape: arrowStyle,
+        initialIndex: 0,
+        friction: 1,
+        selectedAttraction: 1,
+        prevNextButtons: false,
+        draggable: false,
+        wrapAround: true,
+        pageDots: false,
+        contain: false,
+        percentPosition: true,
+        cellSelector: checkSm() ? 'figure' : '.carousel-cell',
+        cellAlign: "center"
+      });
+      var shortProductionsCarousel = flickityPrevNext(".short-productions-carousel", ".short-productions .carousel-prev-next" );
+      shortProductionsCarousel.on("select.flickity", function(p1, p2){
+        !checkSm()  ? flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell") 
+                    : flickityCounter(".short-productions .carousel-prev-next", ".short-productions figure");
+      })
+      !checkSm()  ? flickityCounter(".short-productions .carousel-prev-next", ".carousel-cell") 
+                  : flickityCounter(".short-productions .carousel-prev-next", ".short-productions figure");      
     }
 
-    //short-news-carousel
-    var $shortNewsCarousel = $(".short-news-carousel .carousel-items").flickity({
-      imagesLoaded: true,
-      autoPlay: false,
-      pauseAutoPlayOnHover: true,
-      arrowShape: arrowStyle,
-      initialIndex: 0,
-      //friction: 1,
-      //selectedAttraction: 1,
-      prevNextButtons: false,
-      draggable: false,
-      wrapAround: true,
-      pageDots: false,
-      contain: false,
-      percentPosition: true,
-      cellSelector: 'figure',
-      cellAlign: "center"
-    });
 
 
+    /*short-news-carousel*/
+    if( $(".short-news-carousel .carousel-items").length )
+      var $shortNewsCarousel = $(".short-news-carousel .carousel-items").flickity({
+        imagesLoaded: true,
+        autoPlay: false,
+        pauseAutoPlayOnHover: true,
+        arrowShape: arrowStyle,
+        initialIndex: 0,
+        //friction: 1,
+        //selectedAttraction: 1,
+        prevNextButtons: false,
+        draggable: checkSm(),
+        wrapAround: true,
+        pageDots: false,
+        contain: false,
+        percentPosition: true,
+        cellSelector: 'figure',
+        cellAlign: "center"
+      });
     $('.short-news .button-carousel-nav').on( 'click', 'li', function() {
       var index = $(this).index();
       $shortNewsCarousel.flickity( 'select', index );
     });
+
+
+
+
+    /* reviews carousel */
+    //if( $(".short-reviews-carousel .carousel-items").length )
+      var shortReviewsCarousel = $(".reviews-carousel .carousel-items").flickity({
+        imagesLoaded: true,
+        autoPlay: false,
+        pauseAutoPlayOnHover: true,
+        arrowShape: arrowStyle,
+        initialIndex: 0,
+        //friction: 1,
+        //selectedAttraction: 1,
+        prevNextButtons: false,
+        draggable: checkSm(),
+        wrapAround: true,
+        pageDots: false,
+        contain: false,
+        percentPosition: true,
+        cellSelector: 'figure',
+        cellAlign: "center"
+      });
+      if( $('.reviews-carousel .button-carousel-nav').length ){
+        $('.reviews-carousel .button-carousel-nav').on( 'click', 'li', function() {
+          var index = $(this).index();
+          shortReviewsCarousel.flickity( 'select', index );
+        });
+        var progressBar = $(".progress-bar") || null ;
+        var flkty = shortReviewsCarousel.data("flickity");
+        flkty.on( 'scroll', function( progress ) {
+          progress = Math.max( 0, Math.min( 1, progress ) );
+          console.log( progress )
+          progressBar[0].style.width = progress * 100 + '%';
+        });
+      }
+
+
+
+
+
+
+
     
     $('.button-carousel-nav').on('click', 'li', function() {
       var that = $(this);
       var selector = that.attr('data-selector');
       that.addClass("is-selected");
       that.siblings().removeClass("is-selected");
-
-      console.log($(this).siblings());
-      brandMenu.flickity('selectCell', selector);
     });
+
+
+
+
+
+
+
 
 
 
@@ -243,7 +297,7 @@
               initialIndex: 1,
               draggable: true,
               contain: true,
-              pageDots: !checkSm()
+              pageDots: false
             });
           var flkty = crs.data("flickity");
 
@@ -264,9 +318,6 @@
       }
     };
     carouselArticle();
-    //carouselProducts
-    if ($(".products-article").length != 0)
-      $(".products-article").addClass("load");
 
 
 
@@ -292,6 +343,12 @@
       }
 
     }
+
+
+
+
+
+
 
     //SCROLL
     var minMenu = $(".header-scroll") || null;
@@ -322,6 +379,180 @@
       }
     });
 
+
+
+
+
+
+
+
+
+
+
+
+
+    //Const Animation
+    if( $(".const-animation").length )
+      (function($){
+
+        var tlTruck_1 = new TimelineMax({ 
+          repeat: -1,
+          paused: true
+        });
+        var tlTruck_2 = new TimelineMax({ 
+          repeat: -1, 
+          paused: true
+        });
+        var containerAnimation = $(".const-animation") || null;
+        var countainerWidth = containerAnimation.width();
+
+        var truck_1 = $(".truck-1").eq(0); // 1 грузовик
+        var truck_2 = $(".truck-2").eq(0); // 2 грузовик
+        
+        //Анимация 1 грузовика
+        tlTruck_1.fromTo( truck_1, 36, {left: -134, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truck-1" ).addCallback(function(){
+          soundtlTruck_1.play();
+        })
+        // Анимация 2 грузовика
+        tlTruck_2.fromTo( truck_2, 43, {right: -94, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"} ).addCallback(function(){
+          soundtlTruck_2.play();
+        })
+        //Убавление звука при прокрутке
+        $(window).on("scroll", function(){
+          fadeScrollAudio( containerAnimation );
+        })
+
+        $(document).on("click", ".truck-1", function(){
+          if( !soundtlTruckSignal_1.playStatus ){
+            soundtlTruckSignal_1.play();
+            soundtlTruck_1.stop();
+            tlTruck_1.stop();
+
+            setTimeout(function(){
+                soundtlTruck_1.play();
+                tlTruck_1.play();
+            }, 3000)
+          }
+        })
+        $(document).on("click", ".truck-2", function(){
+          if( !soundtlTruckSignal_2.playStatus ){
+            soundtlTruckSignal_2.play();
+            soundtlTruck_2.stop();
+            tlTruck_2.stop();
+
+            setTimeout(function(){
+                soundtlTruck_2.play();
+                tlTruck_2.play();
+            
+            }, 3000)
+          }
+        })
+
+
+        //HOWL
+        Howler.volume(0.0)
+        window.soundWindcity = new Howl({
+          src: ['img/const-animation/sounds/windcity-1.mp3'],
+          autoplay: false,
+          volume: 1,
+          onload: function(){
+            this.play();
+            this.loop(true);
+          },
+          onend: function() {}
+        });
+        var soundtlTruck_1 = new Howl({
+          src: ['img/const-animation/sounds/truck-2-35.mp3'],
+          autoplay: false,
+          volume: 0.7,
+          onload: function(){
+            this.play(); //howl play        
+            tlTruck_1.play();//gsap PLAY
+          },
+          onend: function() {}
+        });
+        var soundtlTruck_2 = new Howl({
+          src: ['img/const-animation/sounds/truck-5-42.mp3'],
+          autoplay: false,
+          volume: 0.4,
+          onload: function(){
+            this.play(); //howl play        
+            tlTruck_2.play();//gsap PLAY
+          },
+          onend: function() {}
+        });
+        var soundtlTruckSignal_1 = new Howl({
+          src: ['img/const-animation/sounds/truck-4-2.mp3'],
+          autoplay: false,
+          volume: 0.1,
+          rate: 0.9,
+          pool: 5,
+          playStatus: false,
+          onload: function(){},
+          onplay: function(){
+            var that = this;
+            this.playStatus = true;
+            setTimeout(function(){
+              that.playStatus = false;
+            }, 2000)
+          },
+          onend: function() {}
+        });
+        var soundtlTruckSignal_2 = new Howl({
+          src: ['img/const-animation/sounds/truck-4-2.mp3'],
+          autoplay: false,
+          volume: 0.05,
+          rate: 0.9,
+          playStatus: false,
+          onload: function(){},
+          onplay: function(){
+            var that = this;
+            this.playStatus = true;
+            setTimeout(function(){
+              that.playStatus = false;
+            }, 2000)
+          },
+          onend: function() {}
+        });
+        
+        function fadeScrollAudio( el ){
+          var el = $(el);
+          var docViewTop = $(window).scrollTop(),
+              docViewBottom = docViewTop + $(window).height(),
+              elTop = el.offset().top,
+              elBottom = elTop + el.height() / 1.5;
+          var persentElTop = (elTop-100)/100
+          var persentdocViewTop = docViewTop/persentElTop << 0;
+          var volume = persentdocViewTop/50-1;
+          var visionDisplay = elBottom <= docViewBottom && elTop >= docViewTop;
+          if( volume > 1 || visionDisplay )
+            volume = 1;
+          Howler.volume( roundFix(volume, 2) );
+          //console.log( roundFix(persentdocViewTop/50+1, 2), persentdocViewTop/50+1, volume+2 )
+          console.log( volume )
+        }
+      })($);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Preloader
     window.preLoader = {
       preBox: ".pre-box",
       enter: false,
@@ -384,161 +615,7 @@
         }
       }
     };
-
     preLoader.preImg();
-
-
-
-
-
-
-
-    //GSAP
-    var tlTruck_1 = new TimelineMax({ 
-      repeat: -1,
-      paused: true
-    });
-    var tlTruck_2 = new TimelineMax({ 
-      repeat: -1, 
-      paused: true
-    });
-  
-    var countainerWidth = $(".const-animation").width();
-
-    var truck_1 = $(".truck-1").eq(0); // 1 грузовик
-    var truck_2 = $(".truck-2").eq(0); // 2 грузовик
-    
-
-
-    //Анимация 1 грузовика
-    tlTruck_1.fromTo( truck_1, 36, {left: -134, y: 0, ease: "linear"},  {left: countainerWidth, y: 0, ease: "linear"}, "truck-1" ).addCallback(function(){
-      soundtlTruck_1.play();
-    })
-    // Анимация 2 грузовика
-    tlTruck_2.fromTo( truck_2, 43, {right: -94, y: 0, ease: "linear"},  {right: countainerWidth, y: 0, ease: "linear"} ).addCallback(function(){
-      soundtlTruck_2.play();
-    })
-
-    $(window).on("scroll", function(){
-    
-      var el = $(".const-animation")
-      var docViewTop = $(window).scrollTop(),
-          docViewBottom = docViewTop + $(window).height(),
-          elTop = el.offset().top,
-          elBottom = elTop + el.height();
-      var persentElTop = (elTop-100)/100
-      var persentdocViewTop = docViewTop/persentElTop << 0;
-      //console.log( elTop, docViewTop, persentdocViewTop )
-
-      //if( persentdocViewTop > 50 ){
-        Howler.volume( roundFix(persentdocViewTop/50-0.8, 2) );
-        console.log( roundFix(persentdocViewTop/50-0.8, 2) )
-      //}
-    })
-    $(document).on("click", ".truck-1", function(){
-      if( !soundtlTruckSignal_1.playStatus ){
-        soundtlTruckSignal_1.play();
-        soundtlTruck_1.stop()
-        tlTruck_1.stop()
-
-        setTimeout(function(){
-            soundtlTruck_1.play()
-            tlTruck_1.play()
-        
-        }, 3000)
-      }
-    })
-    $(document).on("click", ".truck-2", function(){
-      if( !soundtlTruckSignal_2.playStatus ){
-        soundtlTruckSignal_2.play();
-        soundtlTruck_2.stop()
-        tlTruck_2.stop()
-
-        setTimeout(function(){
-            soundtlTruck_2.play()
-            tlTruck_2.play()
-        
-        }, 3000)
-      }
-    })
-
-
-    //HOWL
-    Howler.volume(0.1)
-    window.soundWindcity = new Howl({
-      src: ['../img/const-animation/sounds/windcity-1.mp3'],
-      autoplay: false,
-      loop: false,
-      volume: 1,
-      onload: function(){
-        this.play()
-        this.loop(true);
-      },
-      onend: function() {}
-    });
-    var soundtlTruck_1 = new Howl({
-      src: ['../img/const-animation/sounds/truck-2-35.mp3'],
-      autoplay: false,
-      loop: false,
-      volume: 0.7,
-      onload: function(){
-        this.play(); //howl play        
-        tlTruck_1.play();//gsap PLAY
-      },
-      onend: function() {}
-    });
-    var soundtlTruck_2 = new Howl({
-      src: ['../img/const-animation/sounds/truck-5-42.mp3'],
-      autoplay: false,
-      loop: false,
-      volume: 0.4,
-      onload: function(){
-        this.play(); //howl play        
-        tlTruck_2.play();//gsap PLAY
-      },
-      onend: function() {}
-    });
-    var soundtlTruckSignal_1 = new Howl({
-      src: ['../img/const-animation/sounds/truck-4-2.mp3'],
-      autoplay: false,
-      loop: false,
-      volume: 0.1,
-      rate: 0.9,
-      pool: 5,
-      playStatus: false,
-      onload: function(){},
-      onplay: function(){
-        var that = this;
-        this.playStatus = true;
-        setTimeout(function(){
-          that.playStatus = false;
-        }, 2000)
-      },
-      onend: function() {}
-    });
-    var soundtlTruckSignal_2 = new Howl({
-      src: ['../img/const-animation/sounds/truck-4-2.mp3'],
-      autoplay: false,
-      loop: false,
-      volume: 0.05,
-      rate: 0.9,
-      pool: 5,
-      playStatus: false,
-      onload: function(){},
-      onplay: function(){
-        var that = this;
-        this.playStatus = true;
-        setTimeout(function(){
-          that.playStatus = false;
-        }, 2000)
-      },
-      onend: function() {}
-    });
-    
-
-
-
-
 
 
 

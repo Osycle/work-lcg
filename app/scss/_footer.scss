@@ -33,8 +33,11 @@
 	}
 	a{
 		font-weight: 400;
-		//transition: all 0.1s linear;
+		transition: all 0.2s ease;
+		letter-spacing: 0;
+		display: block;
 		&:hover{
+			letter-spacing: 1px;
 			font-weight: 500;
 			//color: lighten($color-1, 50%);
 		}

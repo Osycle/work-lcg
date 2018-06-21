@@ -180,11 +180,12 @@ html body{
 	margin-bottom: 60px;
 	.dot{
 		transition: all 0.3s ease;
-		background-color: $color-1;
+		background-color: rgba(black, 0.2);
 		opacity: 1;
-		transform: scale(0.8);
+  	width: 13px;
+  	height: 13px;
 		&.is-selected{
-			transform: scale(1.6);
+			background-color: rgba($color-1, 1);
 		}
 	}
 }
@@ -230,7 +231,7 @@ html body{
 	.carousel-main{
 		.flickity-viewport{
 			border: 1px solid rgba($color-gray-1, 0.2);
-			border-radius: 15px;
+			//border-radius: 15px;
 			overflow: hidden;
 		}
 	}
@@ -242,14 +243,14 @@ html body{
 	  	width: 30%;
 			height: auto;
 	  	margin-right: 10px;
-	  	//border: 2px solid transparent;
+	  	border: 5px solid transparent;
 	  	transition: all 0.3s ease-out;
 	  	&.is-nav-selected{
 	  	 //border-color: $color-1;
 	  	}
 		}
 		.is-selected{
-			border-color: rgba($color-1, 0.2);
+			border-color: rgba($color-1, 1);
 		}
 	}
 	.flickity-prev-next-button.previous{ left: -10px; }
