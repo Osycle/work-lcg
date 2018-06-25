@@ -698,6 +698,76 @@ div.carousel-btn-content{
 	}
 }
 
+//calculate
+
+
+
+.calculate{
+	height: 600px;
+	background-color: white; 
+	h3{
+		text-align: center;
+	}
+	.top-content{
+		.js-select{
+			width: 100% !important;
+		}
+		.js-select, input, .select2-selection{
+			height: 40px !important;
+	    display: flex;
+	    text-align: center;
+    	align-items: center;
+    	&:focus, &:active{
+    		outline: 0 ;
+    	}
+		}
+		.select2-selection__rendered{
+			width: 100%;
+		}
+		.select2-selection{
+		}
+		input{
+			border-radius: 4px;
+			background-color: #fff;
+    	border: 1px solid #aaa;
+			padding: 5px 10px;
+			width: 100%;
+		}
+	}
+	.bottom-content{
+		h3{
+
+		}
+	}
+	table{
+		 border-spacing: 0px;
+		tr{
+			background-color: forestgreeen;
+			position: relative;
+			&:last-child{
+				td{
+					border-bottom:1px solid rgba(black, 0.2) !important;
+				}
+			}
+		}
+		td{
+			border-color: transparent !important;
+			border-top:1px solid rgba(black, 0.2) !important;
+			&:nth-child(1){
+				font-weight: 600;
+			}
+			&:nth-child(2){
+				text-align: right;
+			}
+		}
+	}
+}
+
+
+
+
+
+
 
 /* contacts */
 .contacts-info-items{
@@ -821,3 +891,6 @@ div.carousel-btn-content{
 		}
 	}
 }
+
+
+
