@@ -253,16 +253,16 @@ table {
 	width: 100%;
 	@extend .table; 
 	th{
-		border-right: 1px solid;
-		background-color: rgba($color-1, 1);
+		//border-right: 1px solid;
+		//background-color: rgba($color-1, 1);
 		color: white;
 	}
 	td{
-		border-color: rgba($color-1, 0.2) !important;
+		border-color: rgba($color-1, 0.2);
 	}
 	tbody{
 		tr:nth-child(odd){
-			background-color: rgba($color-1, 0.1);
+			//background-color: rgba($color-1, 0.1);
 		}
 		tr:nth-child(even){
 			//background-color: rgba($color-1, 0.1);

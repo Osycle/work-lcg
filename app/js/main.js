@@ -19,8 +19,14 @@
     if ( $(".js-select").length )
       $(".js-select").select2({
         placeholder: "Выберите...",
+        // ajax: {
+        //   url: 'https://api.github.com/search/repositories',
+        //   dataType: 'json'
+        //   // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+        // },
         allowClear: false
       });
+    
     if ( $(".js-select").length )
     $(".js-select.search-hide").select2({
       minimumResultsForSearch: Infinity
@@ -449,8 +455,9 @@
         })
 
 
+
         //HOWL
-        Howler.volume(0.0)
+        Howler.volume(0.0);
         window.soundWindcity = new Howl({
           src: ['img/const-animation/sounds/windcity-1.mp3'],
           autoplay: false,
