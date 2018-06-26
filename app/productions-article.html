@@ -22,60 +22,7 @@
       <p>Ваш браузер не поддерживает скрипты!
         <br/> Пожалуйста подключите в настройках браузера Javascript</p>
     </noscript>
-    <!-- modal-feedback -->
-    <div class="modal-feedback modal fade animated" id="modal-feedback" tabindex="-1" role="dialog">
-      <div class="pie-flex-center">
-        <div>
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <button type="button" class="btn close-content" data-dismiss="modal">
-                <span class="icon-bar"></span><span class="icon-bar"></span>
-              </button>
-              <div class="modal-body">
-                <!-- success-info -->
-                <div class="col-md-12 success-info m-b-30 text-center">
-                  <font color="red">
-                    <div class="info-success" id=""></div>
-                  </font>
-                  <font color="green">
-                    <div class="info-error" id=""></div>
-                  </font>
-                </div>
-                <div class="form-content col-md-12">
-                  <form method="POST" action="">
-                    <h3 class="text-center-sm m-v-10">Связаться с нами</h3>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">ФИО
-                        <input class="form-control" type="text" name="" value="">
-                      </label>
-                    </div>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">E-mail
-                        <input class="form-control" type="text" name="" value="">
-                      </label>
-                    </div>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">Телефон
-                        <input class="form-control" type="text" name="" value="">
-                      </label>
-                    </div>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">Сообщение
-                        <textarea name="" class="form-control" resize="none"></textarea>
-                      </label>
-                    </div>
-                    <br>
-                    <div class="form-footer m-v-30 clearfix col-md-12">
-                      <button type="submit" class="m-auto-sm btn-def color-white btn-res"><b>Отправить</b></button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <!-- HEADER -->
     <div class="header-hidden"></div>
     <header id="header" class="header-scroll" data-aos="fade">
@@ -102,7 +49,7 @@
               </nav>
             </div>
             <div class="header-btn-content pie-md-elastic-3 p-h-15">
-              <span class="btn-def radius-2"><a href="" title="" class="p-v-15 p-h-60"><b>Рассчитать</b></a></span>
+              <span class="btn-def radius-2"><a class="p-v-15 p-h-60" href="javascript:;" data-src="#calculate" data-fancybox title=""><b>Рассчитать</b></a></span>
             </div>
           </div>
         </div>
@@ -116,6 +63,7 @@
         <li><a href="productions.html" title="">Продукции</a></li>
         <li><a href="reviews.html" title="">Отзывы</a></li>
         <li><a href="contacts.html" title="">Контакты</a></li>
+        <span class="btn-def"><a class="p-v-15 p-h-60" href="javascript:;" data-src="#calculate" data-fancybox title=""><b>Рассчитать</b></a></span>
       </ul>
     </div>
     <!-- MIN MENU HEADER -->
@@ -344,6 +292,7 @@
   <!-- SCRIPTS -->
   <script src="js/scripts.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/calc.js"></script>
 </body>
 
 </html>

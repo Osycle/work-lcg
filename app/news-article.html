@@ -22,53 +22,99 @@
       <p>Ваш браузер не поддерживает скрипты!
         <br/> Пожалуйста подключите в настройках браузера Javascript</p>
     </noscript>
-    <!-- modal-feedback -->
-    <div class="modal-feedback modal fade animated" id="modal-feedback" tabindex="-1" role="dialog">
-      <div class="pie-flex-center">
-        <div>
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <button type="button" class="btn close-content" data-dismiss="modal">
-                <span class="icon-bar"></span><span class="icon-bar"></span>
-              </button>
-              <div class="modal-body">
-                <!-- success-info -->
-                <div class="col-md-12 success-info m-b-30 text-center">
-                  <font color="red">
-                    <div class="info-success" id=""></div>
-                  </font>
-                  <font color="green">
-                    <div class="info-error" id=""></div>
-                  </font>
+    <!-- calculate -->
+    <div class="hide">
+      <div class="calculate" id="calculate">
+        <div class="calculate-container">
+          <div class="calculate-content h3-before-none">
+            <div class="top-content text-center">
+              <div class="col-md-6">
+                <h3 align="center">Диаметр</h3>
+                <div class="form-control-content box-md-6 m-auto">
+                  <select class="js-select calc-select search-hide">
+                    <option value="6" 
+                      data-basalt-type="4" data-steel-cost="1488" data-basalt-cost="1140" data-startlength="4504">6 A-III</option>
+                    <option value="8" 
+                      data-basalt-type="6" data-steel-cost="2647" data-basalt-cost="1780" data-startlength="2531">8 A-III</option>
+                    <option value="10" 
+                      data-basalt-type="7" data-steel-cost="4136" data-basalt-cost="2300" data-startlength="1620">10 A-III</option>
+                    <option value="12" 
+                      data-basalt-type="8" data-steel-cost="5950" data-basalt-cost="2900" data-startlength="1126">12 A-III</option>
+                    <option value="14" 
+                      data-basalt-type="10" data-steel-cost="8111" data-basalt-cost="4260" data-startlength="826">14 A-III</option>
+                    <option value="16" 
+                      data-basalt-type="12" data-steel-cost="10585" data-basalt-cost="6050" data-startlength="633">16 A-III</option>
+                    <option value="18" 
+                      data-basalt-type="14" data-steel-cost="13400" data-basalt-cost="8120" data-startlength="500">18 A-III</option>
+                    <option value="20" 
+                      data-basalt-type="16" data-steel-cost="16543" data-basalt-cost="9650" data-startlength="405">20 A-III</option>
+                  </select>
                 </div>
-                <div class="form-content col-md-12">
-                  <form method="POST" action="">
-                    <h3 class="text-center-sm m-v-10">Связаться с нами</h3>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">ФИО
-                        <input class="form-control" type="text" name="" value="">
-                      </label>
-                    </div>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">E-mail
-                        <input class="form-control" type="text" name="" value="">
-                      </label>
-                    </div>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">Телефон
-                        <input class="form-control" type="text" name="" value="">
-                      </label>
-                    </div>
-                    <div class="col-md-12">
-                      <label class="box-xs-10">Сообщение
-                        <textarea name="" class="form-control" resize="none"></textarea>
-                      </label>
-                    </div>
-                    <br>
-                    <div class="form-footer m-v-30 clearfix col-md-12">
-                      <button type="submit" class="m-auto-sm btn-def color-white btn-res"><b>Отправить</b></button>
-                    </div>
-                  </form>
+              </div>
+              <div class="col-md-6">
+                <h3 align="center">Длина</h3>
+                <div class="form-control-content box-md-6 m-auto">
+                  <input type="text" name="" class="calc-input-length">
+                </div>
+              </div>
+            </div>
+            <div class="bottom-content clearfix row">
+              <div class="col-md-6 calc-steel p-h-15">
+                <h3 class="color-1 m-v-30">Стальная Арматура</h3>
+                <div class="table-content m-v-30">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Тип</td>
+                        <td><span class="calc-type"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Диаметр</td>
+                        <td><span class="calc-diameter"></span> мм</td>
+                      </tr>
+                      <tr>
+                        <td>Цена</td>
+                        <td><span class="calc-price"></span> сум</td>
+                      </tr>
+                      <tr>
+                        <td>Длина</td>
+                        <td><span class="calc-length"></span> п.м</td>
+                      </tr>
+                      <tr>
+                        <td>Стоимость за 1 п.м</td>
+                        <td><span class="calc-cost"></span> сум</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-6 calc-basalt p-h-15">
+                <h3 class="color-1 m-v-30">Базальтовая арматура</h3>
+                <div class="table-content m-v-30">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Тип</td>
+                        <td><span class="calc-type"></span></td>
+                      </tr>
+                      <tr>
+                        <td>Диаметр</td>
+                        <td><span class="calc-diameter"></span> мм</td>
+                      </tr>
+                      <tr>
+                        <td>Цена</td>
+                        <td><span class="calc-price"></span> сум</td>
+                      </tr>
+                      <tr>
+                        <td>Длина</td>
+                        <td><span class="calc-length"></span> п.м</td>
+                      </tr>
+                      <tr>
+                        <td>Стоимость за 1 п.м</td>
+                        <td><span class="calc-cost"></span> сум</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -102,7 +148,7 @@
               </nav>
             </div>
             <div class="header-btn-content pie-md-elastic-3 p-h-15">
-              <span class="btn-def radius-2"><a href="" title="" class="p-v-15 p-h-60"><b>Рассчитать</b></a></span>
+              <span class="btn-def radius-2"><a class="p-v-15 p-h-60" href="javascript:;" data-src="#calculate" data-fancybox title=""><b>Рассчитать</b></a></span>
             </div>
           </div>
         </div>
@@ -116,6 +162,7 @@
         <li><a href="productions.html" title="">Продукции</a></li>
         <li><a href="reviews.html" title="">Отзывы</a></li>
         <li><a href="contacts.html" title="">Контакты</a></li>
+        <span class="btn-def"><a class="p-v-15 p-h-60" href="javascript:;" data-src="#calculate" data-fancybox title=""><b>Рассчитать</b></a></span>
       </ul>
     </div>
     <!-- MIN MENU HEADER -->
@@ -239,6 +286,7 @@
   <!-- SCRIPTS -->
   <script src="js/scripts.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/calc.js"></script>
 </body>
 
 </html>

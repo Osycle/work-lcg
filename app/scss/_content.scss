@@ -703,8 +703,11 @@ div.carousel-btn-content{
 
 
 .calculate{
-	height: 600px;
+	min-height: 300px;
 	background-color: white; 
+	.calculate-container{
+		width: 60vw;
+	}
 	h3{
 		text-align: center;
 	}
@@ -715,11 +718,19 @@ div.carousel-btn-content{
 		.js-select, input, .select2-selection{
 			height: 40px !important;
 	    display: flex;
+	    font-weight: 900;
+	    color: #333;
 	    text-align: center;
+	    transition: all 0.0s linear;
+	    border: 1px solid rgba($color-1, 0.2);
     	align-items: center;
-    	&:focus, &:active{
+    	&:focus{
     		outline: 0 ;
+    		border: 2px solid $color-1;
     	}
+		}
+		.select2{
+			width: 100%;
 		}
 		.select2-selection__rendered{
 			width: 100%;
@@ -729,7 +740,6 @@ div.carousel-btn-content{
 		input{
 			border-radius: 4px;
 			background-color: #fff;
-    	border: 1px solid #aaa;
 			padding: 5px 10px;
 			width: 100%;
 		}
@@ -763,7 +773,9 @@ div.carousel-btn-content{
 	}
 }
 
-
+.select2-container{
+	z-index: 99994;
+}
 
 
 
