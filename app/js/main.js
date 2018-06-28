@@ -229,10 +229,10 @@
 
 
     /* reviews carousel */
-    //if( $(".short-reviews-carousel .carousel-items").length )
+    if( $(".reviews-carousel .carousel-items").length ){
       var shortReviewsCarousel = $(".reviews-carousel .carousel-items").flickity({
         imagesLoaded: true,
-        autoPlay: false,
+        autoPlay: 2500,
         pauseAutoPlayOnHover: true,
         arrowShape: arrowStyle,
         initialIndex: 0,
@@ -241,25 +241,38 @@
         prevNextButtons: false,
         draggable: checkSm(),
         wrapAround: true,
+        select: function( index ) {
+          console.log( 'Slide changed to' + index );
+        },
         pageDots: false,
         contain: false,
         percentPosition: true,
         cellSelector: 'figure',
         cellAlign: "center"
+      })
+      shortReviewsCarousel.data("flickity");
+    }
+
+    if( $('.reviews-carousel .button-carousel-nav').length ){
+
+      var buttonCarouselNav = $('.reviews-carousel .button-carousel-nav').on( 'click', 'li', function() {
+        var index = $(this).index();
+        shortReviewsCarousel.flickity( 'select', index );
       });
-      if( $('.reviews-carousel .button-carousel-nav').length ){
-        $('.reviews-carousel .button-carousel-nav').on( 'click', 'li', function() {
-          var index = $(this).index();
-          shortReviewsCarousel.flickity( 'select', index );
-        });
-        var progressBar = $(".progress-bar") || null ;
-        var flkty = shortReviewsCarousel.data("flickity");
-        flkty.on( 'scroll', function( progress ) {
-          progress = Math.max( 0, Math.min( 1, progress ) );
-          console.log( progress )
-          progressBar[0].style.width = progress * 100 + '%';
-        });
-      }
+
+      shortReviewsCarousel.on( 'select.flickity', function( event, index ) {
+        var inx = $(this).find(".is-selected").index();
+        buttonCarouselNav.find("li").eq(inx).addClass("is-selected").siblings().removeClass("is-selected");
+        console.log( inx, this )
+      });
+      // Прогресс
+      var progressBar = $(".progress-bar") || null ;
+      var flkty = shortReviewsCarousel.data("flickity");
+      flkty.on( 'scroll', function( progress ) {
+        progress = Math.max( 0, Math.min( 1, progress ) );
+        progressBar[0].style.width = progress * 100 + '%';
+      });
+    }
 
 
 
@@ -363,12 +376,12 @@
     $(window).on("scroll", function(e) {
 
       //Адаптация хедера при скролинге
-      if ($(window).scrollTop() > 100 && headerRange == false) {
+      if ($(window).scrollTop() > 90 && headerRange == false) {
 
         headerRange = true;
         if (minMenu) minMenu.addClass("scrolled").addClass("down");
 
-      } else if ($(window).scrollTop() < 100 && headerRange == true) {
+      } else if ($(window).scrollTop() < 90 && headerRange == true) {
         headerRange = !true;
         if (minMenu) minMenu.removeClass("scrolled");
       } //.originalEvent.wheelDelta
@@ -461,7 +474,7 @@
         window.soundWindcity = new Howl({
           src: ['img/const-animation/sounds/windcity-1.mp3'],
           autoplay: false,
-          volume: 1,
+          volume: 0.9,
           onload: function(){
             this.play();
             this.loop(true);
@@ -471,7 +484,7 @@
         var soundtlTruck_1 = new Howl({
           src: ['img/const-animation/sounds/truck-2-35.mp3'],
           autoplay: false,
-          volume: 0.7,
+          volume: 0.6,
           onload: function(){
             this.play(); //howl play        
             tlTruck_1.play();//gsap PLAY
@@ -481,7 +494,7 @@
         var soundtlTruck_2 = new Howl({
           src: ['img/const-animation/sounds/truck-5-42.mp3'],
           autoplay: false,
-          volume: 0.4,
+          volume: 0.3,
           onload: function(){
             this.play(); //howl play        
             tlTruck_2.play();//gsap PLAY
@@ -491,7 +504,7 @@
         var soundtlTruckSignal_1 = new Howl({
           src: ['img/const-animation/sounds/truck-4-2.mp3'],
           autoplay: false,
-          volume: 0.1,
+          volume: 0.08,
           rate: 0.9,
           pool: 5,
           playStatus: false,
@@ -508,7 +521,7 @@
         var soundtlTruckSignal_2 = new Howl({
           src: ['img/const-animation/sounds/truck-4-2.mp3'],
           autoplay: false,
-          volume: 0.05,
+          volume: 0.04,
           rate: 0.9,
           playStatus: false,
           onload: function(){},
