@@ -895,6 +895,22 @@ div.carousel-btn-content{
 }
 
 
+/* news */
+.news-items{
+	figure{
+		.img{
+			background-position: center;
+			background-size: cover;
+			height: 250px;
+			transition: all 0.3s ease-in-out;
+		}
+		&:hover{
+			.img{
+				filter: brightness(120%);
+			}
+		}
+	}
+}
 /* news-article */
 .news-article{
 	.img-article{

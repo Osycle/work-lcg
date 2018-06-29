@@ -13085,6 +13085,20 @@ div.carousel-btn-content {
     .reviews-carousel .button-carousel-nav li.is-selected {
       background-color: #096388; }
 
+/* news */
+.news-items figure .img {
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 250px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+.news-items figure:hover .img {
+  -webkit-filter: brightness(120%);
+  filter: brightness(120%); }
+
 /* news-article */
 .news-article .img-article .img {
   height: 185px; }
@@ -13142,6 +13156,9 @@ div.carousel-btn-content {
 
 .footer-dev {
   font-size: 0.88em; }
+
+.footer-logo {
+  width: 195px; }
 
 /* 
 		_other.scss
