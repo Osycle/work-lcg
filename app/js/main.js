@@ -474,7 +474,7 @@
         window.soundWindcity = new Howl({
           src: ['img/const-animation/sounds/windcity-1.mp3'],
           autoplay: false,
-          volume: 0.9,
+          volume: 1.2,
           onload: function(){
             this.play();
             this.loop(true);
@@ -484,7 +484,7 @@
         var soundtlTruck_1 = new Howl({
           src: ['img/const-animation/sounds/truck-2-35.mp3'],
           autoplay: false,
-          volume: 0.6,
+          volume: 1,
           onload: function(){
             this.play(); //howl play        
             tlTruck_1.play();//gsap PLAY
@@ -494,7 +494,7 @@
         var soundtlTruck_2 = new Howl({
           src: ['img/const-animation/sounds/truck-5-42.mp3'],
           autoplay: false,
-          volume: 0.3,
+          volume: 0.45,
           onload: function(){
             this.play(); //howl play        
             tlTruck_2.play();//gsap PLAY
@@ -504,7 +504,7 @@
         var soundtlTruckSignal_1 = new Howl({
           src: ['img/const-animation/sounds/truck-4-2.mp3'],
           autoplay: false,
-          volume: 0.08,
+          volume: 0.12,
           rate: 0.9,
           pool: 5,
           playStatus: false,
@@ -521,7 +521,7 @@
         var soundtlTruckSignal_2 = new Howl({
           src: ['img/const-animation/sounds/truck-4-2.mp3'],
           autoplay: false,
-          volume: 0.04,
+          volume: 0.05,
           rate: 0.9,
           playStatus: false,
           onload: function(){},
@@ -545,8 +545,10 @@
           var persentdocViewTop = docViewTop/persentElTop << 0;
           var volume = persentdocViewTop/50-1;
           var visionDisplay = elBottom <= docViewBottom && elTop >= docViewTop;
-          if( volume > 1 || visionDisplay )
+          if( volume > 1 ){
+            console.log(visionDisplay )
             volume = 1;
+          }
           Howler.volume( roundFix(volume, 2) );
           //console.log( roundFix(persentdocViewTop/50+1, 2), persentdocViewTop/50+1, volume+2 )
           console.log( volume )
@@ -574,64 +576,45 @@
 
     //Preloader
     window.preLoader = {
-      preBox: ".pre-box",
-      enter: false,
-      status: $(".pre-box").hasClass("in"),
-
-      preToggle: function(bool, func) {
-        var endtime = 600;
-        if (!this.enter) return;
-        if (typeof func === "function")
-          setTimeout(function() {
-            func();
-          }, endtime);
-        var preBox = $(this.preBox);
-
-        bool || this.status ?
-          preBox.removeClass("in").setTimeout(function() {
-            $(preBox).hide();
-          }, endtime) :
-          preBox
-          .show()
-          .addClass("in")
-          .find(".box-content");
-
-        return (this.status = !this.status);
-      },
 
       preImg: function(img) {
         var images = img || document.images,
           imagesTotalCount = images.length,
           imagesLoadedCount = 0,
           preloadPercent = $(".percent").text("0 %");
-
+        console.log(preloadPercent);
         if (imagesTotalCount == 0) {
           preOnload();
-          $(preloadPercent).text("100 %");
+          //$(preloadPercent).text("100 %");
         }
 
         for (var i = 0; i < imagesTotalCount; i++) {
-          var image_clone = new Image();
-          image_clone.onload = image_loaded;
-          image_clone.onerror = image_loaded;
-          image_clone.src = images[i].src;
+          var imageClone = new Image();
+          imageClone.onload = imageLoaded;
+          imageClone.onerror = imageLoaded;
+          imageClone.src = images[i].src;
         }
 
         function preOnload() {
           onLoaded();
+          setTimeout(function() { $(".preloader").slideUp()}, 600);
+          $(".svg-logo .st0").addClass("in");
         }
 
-        function image_loaded() {
+        function imageLoaded() {
           imagesLoadedCount++;
 
           var per = (100 / imagesTotalCount * imagesLoadedCount) << 0;
 
           setTimeout(function() {
-            //console.log(per);
+            console.log(per);
             $(preloadPercent).text(per + "%");
-          }, 1);
+            $(".svg-progress line").css("stroke-dashoffset", 350 - (350/100) * per );
 
-          if (imagesLoadedCount >= imagesTotalCount) preOnload();
+            if (imagesLoadedCount >= imagesTotalCount) preOnload();
+          }, 220);
+          //var ser = ( ( 400 * Math.PI / imagesTotalCount ) * imagesLoadedCount ) << 0 ;
+
         }
       }
     };

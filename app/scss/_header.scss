@@ -97,7 +97,7 @@ header{
 				text-align: center;
 				display: block;
 				transition: all 0.3s ease;
-				padding: 15px 20px;
+				padding: 5px 10px;
 			}
 			&:hover{
 				a{
@@ -116,6 +116,9 @@ header{
 				}
 			}
 
+		}
+		@media (min-width:992px) {
+			width: 560px;
 		}
 	}
 	&:hover{
@@ -191,7 +194,17 @@ header{
 	}
 }
 
-
+.header-lang{
+	li{
+		width: 35px;
+		&.active{
+			font-weight: 700;
+			color: rgba($color-1, 0.2);
+		}
+		img{
+		}
+	}
+}
 
 
 

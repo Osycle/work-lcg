@@ -7,6 +7,104 @@
 */
 
 
+// PRELODER
+.preloader{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: white;
+  opacity: 1;
+  margin: auto;
+  //transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader{
+	transform: scale(0.5);
+	span{
+		text-align: center;
+		display: block;
+	}
+	.img-content{
+		position: relative;
+		width: 350px;
+		z-index: 1;
+		//display: none;
+	}
+	.percent{
+		font-size: 25px;
+		font-weight: 600;
+		color: rgba(black, 0.5);
+		z-index: 0;
+		font-family: sans-serif;
+		margin-top: 30px;
+		//position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+	}
+	@keyframes logoLines{
+		to, from{
+			stroke-dashoffset: 300;
+		}
+		50%{
+			stroke-dashoffset: 50;
+		}
+	}
+	@keyframes logoBub{
+		to, from{
+			stroke-width: 0px;
+		}
+		50%{
+			stroke-width: 5px;
+		}
+	}
+
+	.svg-logo{
+		width: 266px;
+  	height: 266px;
+  	path{
+  		stroke: #4a6a84;
+  		animation: logoBub 3s ease infinite;
+  	}
+  	.st0{
+  		animation: logoLines 3s ease infinite;
+  		transition: all 0.225s ease-in-out;
+    	stroke-dashoffset: 200;
+    	stroke-dasharray: 100;
+    	fill: transparent;
+    	stroke: $color-3;
+    	stroke-width: 3px;
+    	&.in{
+    		fill: $color-3;
+    		stroke: transparent;
+    		transition: all 1s ease-in-out;
+    		stroke-dasharray: 1000;
+    		animation: logoBub 3s ease infinite;
+    	}
+  	}
+	}
+	.svg-progress{
+		width: 100%;
+    height: 17px;
+    background-color: rgba($color-1, 0.1);
+		margin-top: 30px;
+		margin-bottom: 30px;
+    line{
+		 	stroke-dasharray: 350;
+		 	stroke-dashoffset: 350px;
+    	transition: all 0.3s linear;
+   		stroke-width: 16px;
+   		stroke: $color-1;
+    }
+	}
+}
 
 // ---REV---
 
