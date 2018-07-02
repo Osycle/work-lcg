@@ -212,7 +212,7 @@
         //friction: 1,
         //selectedAttraction: 1,
         prevNextButtons: false,
-        draggable: checkSm(),
+        draggable: false,
         wrapAround: true,
         pageDots: false,
         contain: false,
@@ -582,7 +582,6 @@
           imagesTotalCount = images.length,
           imagesLoadedCount = 0,
           preloadPercent = $(".percent").text("0 %");
-        console.log(preloadPercent);
         if (imagesTotalCount == 0) {
           preOnload();
           //$(preloadPercent).text("100 %");
@@ -607,7 +606,6 @@
           var per = (100 / imagesTotalCount * imagesLoadedCount) << 0;
 
           setTimeout(function() {
-            console.log(per);
             $(preloadPercent).text(per + "%");
             $(".svg-progress line").css("stroke-dashoffset", 350 - (350/100) * per );
 

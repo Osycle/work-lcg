@@ -11911,6 +11911,7 @@ header * {
     .menu ul:not([class*="sub-menu"]) > li {
       display: inline-block;
       position: relative;
+      font-size: 0.95em;
       letter-spacing: 0;
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
@@ -11940,7 +11941,7 @@ header * {
           background-color: transparent; }
     @media (min-width: 992px) {
       .menu ul:not([class*="sub-menu"]) {
-        width: 560px; } }
+        width: 610px; } }
   .menu:hover li.active:after {
     width: 100%;
     opacity: 0; }

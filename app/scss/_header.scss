@@ -88,6 +88,7 @@ header{
 		& > li{
 			display: inline-block;
 			position: relative;
+			font-size: 0.95em;
 			letter-spacing: 0;
 			transition: all 0.3s ease;
 			&:last-child{
@@ -118,7 +119,7 @@ header{
 
 		}
 		@media (min-width:992px) {
-			width: 560px;
+			width: 610px;
 		}
 	}
 	&:hover{
