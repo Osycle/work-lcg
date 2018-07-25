@@ -242,7 +242,7 @@
         draggable: checkSm(),
         wrapAround: true,
         select: function( index ) {
-          console.log( 'Slide changed to' + index );
+          //console.log( 'Slide changed to' + index );
         },
         pageDots: false,
         contain: false,
@@ -263,7 +263,7 @@
       shortReviewsCarousel.on( 'select.flickity', function( event, index ) {
         var inx = $(this).find(".is-selected").index();
         buttonCarouselNav.find("li").eq(inx).addClass("is-selected").siblings().removeClass("is-selected");
-        console.log( inx, this )
+        //console.log( inx, this )
       });
       // Прогресс
       var progressBar = $(".progress-bar") || null ;
@@ -546,12 +546,12 @@
           var volume = persentdocViewTop/50-1;
           var visionDisplay = elBottom <= docViewBottom && elTop >= docViewTop;
           if( volume > 1 ){
-            console.log(visionDisplay )
+            //console.log(visionDisplay )
             volume = 1;
           }
           Howler.volume( roundFix(volume, 2) );
           //console.log( roundFix(persentdocViewTop/50+1, 2), persentdocViewTop/50+1, volume+2 )
-          console.log( volume )
+          //console.log( volume )
         }
       })($);
 
@@ -717,10 +717,8 @@ String.prototype.unescape = function() {
   };
   str = this.replace(/%/g, '$');
   for (var i in winalpha) {
-    console.log(i);
     str = str.replace(new RegExp('[\$]' + i, 'g'), winalpha[i]);
   }
-  console.log(str);
   str = str.replace(/\$/g, '%');
   str = decodeURIComponent(str);
   return str;

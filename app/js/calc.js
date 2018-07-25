@@ -97,6 +97,6 @@
       total++
       if( currentCnt < 1 )
         return total;
-      console.log(currentCnt, ol)
+      //console.log(currentCnt, ol)
     }
   }

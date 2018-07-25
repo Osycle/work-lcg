@@ -12349,7 +12349,6 @@ textarea.form-control {
 
 /* --bnr-slider-- */
 .bnr-slider {
-  background-image: url("img/bg/bg-header.jpg");
   background-position: right center; }
   .bnr-slider figure {
     height: 825px; }
